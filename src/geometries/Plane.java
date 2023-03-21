@@ -4,7 +4,7 @@ import primitives.Point;
 import primitives.Vector;
 
 /**
- * class Plane is a basic class representing a plane
+ * class Plane is a class representing a plane
  * of Euclidean geometry in Cartesian 3-Dimensional coordinate system.
  * @author Yoav Babayof and Avishai Shachor
  */
@@ -28,7 +28,7 @@ public class Plane implements Geometry{
 
     @Override
     public Vector getNormal(Point point) {
-        return null;
+        return normal;
     }
 
     /** Constructor to initialize Plane based on a normal vector and point in plane
@@ -47,8 +47,6 @@ public class Plane implements Geometry{
      * @throws IllegalArgumentException if two or three of the given points are the same point
      */
     public Plane(Point p0, Point p1, Point p2) {
-        if (p0.equals(p1) || p1.equals(p2) || p0.equals(p2))
-            throw new IllegalArgumentException("cannot initialise a plane based with less than three *different* points");
         this.normal = null;
         this.q0 = p0;
     }
