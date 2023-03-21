@@ -9,7 +9,7 @@ import primitives.Util;
  */
 public abstract class RadialGeometry implements Geometry{
     /** radius of the geometry */
-    protected double radius;
+    final protected double radius;
 
     /** Constructor to initialize radialGeometry based on a radius
      * @param radius the radius of the geometry

@@ -9,8 +9,9 @@ public class Point {
     /** 3-dimensional coordinates */
     final Double3 xyz;
 
-    /** Constructor to initialize Point based object with one Double3 value
-     * @param xyz Double3 value */
+    /** Constructor to initialize Point based object with one 3 Double numbers (Double3) value
+     * @param xyz 3 Double numbers (Double3) value
+     */
     Point(Double3 xyz) {
         this.xyz = xyz;
     }
@@ -18,7 +19,8 @@ public class Point {
     /** Constructor to initialize Point based object with 3 number values
      * @param x first number value
      * @param y second number value
-     * @param z third number value */
+     * @param z third number value
+     */
     public Point(Double x, Double y, Double z) {
         this.xyz = new Double3(x,y,z);
     }
@@ -32,15 +34,20 @@ public class Point {
     }
 
     @Override
-    public int hashCode() { return xyz.hashCode(); }
+    public int hashCode() {
+        return xyz.hashCode();
+    }
 
     @Override
-    public String toString() { return "" + xyz; }
+    public String toString() {
+        return xyz.toString();
+    }
 
     /** subtracts two points into a new vector from the second
      *  point (right handle side) to the first one
      * @param  point right handle side operand for subtraction
-     * @return     result of subtract */
+     * @return vector from first to second (right hand side) point
+     */
     public Vector subtract(Point point) {
         return new Vector(xyz.subtract(point.xyz));
     }
