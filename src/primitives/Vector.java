@@ -6,7 +6,7 @@ package primitives;
  * @author Yoav Babayof and Avishai Shachor
  */
 public class Vector extends Point{
-    /** Constructor to initialize Vector based on a Double3 value
+    /** Constructor to initialize Vector based on a 3 double numbers (Double3) value
      * @param xyz number value for all 3 numbers
      * @throws IllegalArgumentException if xyz = (0,0,0) */
     Vector(Double3 xyz) {
@@ -20,7 +20,7 @@ public class Vector extends Point{
      * @param y number value for y coordinate
      * @param z number value for z coordinate
      * @throws IllegalArgumentException if xyz = (0,0,0) */
-    public Vector(Double x, Double y, Double z) {
+    public Vector(double x, double y, double z) {
         super(x, y, z);
         if (Util.isZero(x) && Util.isZero(y) && Util.isZero(z))
             throw new IllegalArgumentException("cannot create a zero vector");
@@ -42,8 +42,8 @@ public class Vector extends Point{
 
     /** Sums two vectors into a new vector where each coordinate
      * is summarized
-     * @param  vector right handle side operand for addition
-     * @return     result of add */
+     * @param   vector right handle side operand for addition
+     * @return  vector result of addition */
     public Vector add(Vector vector) {
         return new Vector(vector.xyz.add(this.xyz));
     }
@@ -59,7 +59,7 @@ public class Vector extends Point{
     /** calculates the dot product of two vectors
      * @param  vector right handle side operand for dot product calculation
      * @return     result of dot product */
-    public Double dotProduct(Vector vector){
+    public double dotProduct(Vector vector){
         //dot product of two vectors (x1,y1,z1) and (x2,y2,z2)
         //is x1*x2 + y1*y2 + z1*z2
         return  this.xyz.d1 * vector.xyz.d1 +
@@ -81,14 +81,14 @@ public class Vector extends Point{
 
     /** calculates length of the vector squared
      * @return     length of vector squared */
-    public Double lengthSquared(){
+    public double lengthSquared(){
         //for any vector v, |V|^2 = v * v [dot product]
         return dotProduct(this);
     }
 
     /** calculates length of the vector
      * @return     length of the vector */
-    public Double length(){
+    public double length(){
         //for any vector v, |V| = sqrt(v * v) [dot product]
         return java.lang.Math.sqrt(this.lengthSquared());
     }

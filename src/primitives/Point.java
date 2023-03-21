@@ -9,8 +9,8 @@ public class Point {
     /** 3-dimensional coordinates */
     final Double3 xyz;
 
-    /** Constructor to initialize Point based object with one 3 Double numbers (Double3) value
-     * @param xyz 3 Double numbers (Double3) value
+    /** Constructor to initialize Point based object with one 3 double numbers (Double3) value
+     * @param xyz 3 double numbers (Double3) value
      */
     Point(Double3 xyz) {
         this.xyz = xyz;
@@ -21,7 +21,7 @@ public class Point {
      * @param y second number value
      * @param z third number value
      */
-    public Point(Double x, Double y, Double z) {
+    public Point(double x, double y, double z) {
         this.xyz = new Double3(x,y,z);
     }
 
@@ -54,15 +54,17 @@ public class Point {
 
     /** Sums a point and a vector into a new point where each coordinate
      * is summarized
-     * @param  vector right handle side operand for addition
-     * @return     result of add */
+     * @param   vector right handle side operand for addition
+     * @return  point result from addition of vector and point
+     */
     public Point add(Vector vector) {
         return new Point(vector.xyz.add(this.xyz));
     }
 
     /** calculates the distance between two points - squared
      * @param  point right handle side operand for distance squared calculation
-     * @return     distance between points - squared */
+     * @return     distance between points - squared
+     */
     public double distanceSquared(Point point){
         //distance between points (x1,y1,z1), (x2,y2,z2) squared is
         // (x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2
@@ -73,7 +75,8 @@ public class Point {
 
     /** calculates the distance between two points
      * @param  point right handle side operand for distance calculation
-     * @return     distance between points */
+     * @return     distance between points
+     */
     public double distance(Point point){
         //distance between points (x1,y1,z1), (x2,y2,z2) is
         // sqrt((x1-x2)^2 + (y1-y2)^2 + (z1-z2)^2)

@@ -6,9 +6,9 @@ package primitives;
  * @author Yoav Babayof and Avishai Shachor
  */
 public class Ray {
-    /** the starting point of the ray */
+    /** starting point of the ray */
     final Point p0;
-    /** the direction vector of the ray */
+    /** direction vector of the ray */
     final Vector dir;
 
     /** getter for starting point of the ray p0
