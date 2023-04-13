@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added Plane getNormal() tests">
-      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/CylinderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/TubeTest.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added all test almost">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/CylinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" afterDir="false" />
     </list>
-    <list id="b7be6d28-d68e-43b6-8abb-9c728060fa40" name="Changes by Avishai" comment="">
+    <list id="b7be6d28-d68e-43b6-8abb-9c728060fa40" name="Changes by Avishai" comment="Changes by Avishai">
+      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
@@ -40,11 +39,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8470908f-3fc9-4361-8cb6-4661878e4649" />
+        <option name="url" value="https://github.com/G1tGood/ISE5783_5796_8560.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/geometries/Tube.java">
+    <file path="$PROJECT_DIR$/src/geometries/Cylinder.java">
       <ranges>
         <range start1="5" end1="5" start2="5" end2="7" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="34" end1="35" start2="36" end2="40" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
+        <range start1="35" end1="36" start2="37" end2="46" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
       </ranges>
     </file>
   </component>
@@ -101,7 +113,22 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TubeTest">
+  <component name="RunManager" selected="JUnit.PlaneTest">
+    <configuration name="CylinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unittests.geometriesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
+      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.CylinderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PlaneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
@@ -112,21 +139,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
       <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.PlaneTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PointTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unittests.primitivesTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unittests.primitivesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.primitivesTests.PointTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -179,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlaneTest" />
+        <item itemvalue="JUnit.CylinderTest" />
         <item itemvalue="JUnit.TubeTest" />
         <item itemvalue="JUnit.SphereTest" />
-        <item itemvalue="JUnit.PlaneTest" />
         <item itemvalue="JUnit.VectorTest" />
-        <item itemvalue="JUnit.PointTest" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +210,7 @@
       <workItem from="1679057016348" duration="8872000" />
       <workItem from="1679168202223" duration="5851000" />
       <workItem from="1679416803008" duration="7277000" />
-      <workItem from="1681377531400" duration="23932000" />
+      <workItem from="1681377531400" duration="27754000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -242,7 +254,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1681398568519</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎-00007" summary="added all test almost">
+      <created>1681408181548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1681408181548</updated>
+    </task>
+    <task id="LOCAL‎-00008" summary="added all test almost">
+      <created>1681408287954</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1681408287954</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +305,8 @@
     <MESSAGE value="complete first step" />
     <MESSAGE value="added tests for point and vector" />
     <MESSAGE value="added Plane getNormal() tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Plane getNormal() tests" />
+    <MESSAGE value="added all test almost" />
+    <MESSAGE value="Changes by Avishai" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Avishai" />
   </component>
 </project>

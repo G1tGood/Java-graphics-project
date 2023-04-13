@@ -4,6 +4,8 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import static primitives.Util.isZero;
+
 /**
  * class Cylinder is a class representing a cylinder
  * of Euclidean geometry in Cartesian 3-Dimensional coordinate system.

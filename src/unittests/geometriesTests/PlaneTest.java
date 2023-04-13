@@ -12,6 +12,31 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class PlaneTest {
     /**
+     * Test method for {@link geometries.Plane#Plane(primitives.Point, primitives.Point, primitives.Point)}.
+     */
+    @Test
+    void testConstructor() {
+        // ============ Equivalence Partitions Tests ==============
+        // TC01: test creating a plane with three different points not on the same line
+        try {
+            new Plane(new Point(1,0,0), new Point(0,1,0), new Point(0,0,1));
+        } catch (IllegalArgumentException e) {
+            fail("Failed constructing a plane");
+        }
+
+        // =============== Boundary Values Tests ==================
+        // TC11: test of boundary value where two points are the same
+        assertThrows(IllegalArgumentException.class, //
+                () -> new Plane(new Point(0, 0, 1), new Point(0, 0, 1), new Point(1, 0, 0)),
+                "Constructed a plane with two identical points");
+
+        // TC12: test of boundary value where all points are on the same line
+        assertThrows(IllegalArgumentException.class, //
+                () -> new Plane(new Point(0, 0, 1), new Point(0, 0, 2), new Point(0, 0, 3)),
+                "Constructed a plane with 3 points on the same line");
+    }
+
+    /**
      * Test method for {@link geometries.Plane#getNormal(primitives.Point)}.
      */
     @Test
