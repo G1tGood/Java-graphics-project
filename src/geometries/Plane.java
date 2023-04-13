@@ -47,7 +47,9 @@ public class Plane implements Geometry{
      * @throws IllegalArgumentException if two or three of the given points are the same point
      */
     public Plane(Point p0, Point p1, Point p2) {
-        this.normal = null;
+        //normal vector is calculated by the cross product of two vectors
+        //representing two edges of the plane
+        this.normal = p1.subtract(p0).crossProduct(p1.subtract(p2)).normalize();
         this.q0 = p0;
     }
 }

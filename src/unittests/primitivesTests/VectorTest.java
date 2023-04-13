@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import primitives.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static primitives.Util.isZero;
 
 /**
  * Unit tests for primitives.Vector class
@@ -49,9 +50,8 @@ class VectorTest {
 
         // =============== Boundary Values Tests ==================
         //TC11: test dot product two orthogonal vectors
-        Vector v4 = new Vector(-6, -3, 0);
-        assertThrows(IllegalArgumentException.class, () -> v1.dotProduct(v4),
-                "dotProduct() for two orthogonal vectors does not throw an exception");
+        Vector v4 = new Vector(-6, 3, 0);
+        assertTrue(isZero(v1.dotProduct(v4)), "dotProduct() for two orthogonal vectors does not return 0");
 
         //TC12: test that dot product of two vectors when one of the vectors is a unit vector
         assertEquals((0.8*3+0.6*6+0*7), v1.dotProduct(new Vector(4,3,0)),0.00001, "dotProduct() wrong result when one of the vectors is a unit vector");
@@ -108,7 +108,17 @@ class VectorTest {
     @Test
     void testNormalize() {
         // ============ Equivalence Partitions Tests ==============
-        // TC01: Test that vector normalization is proper
-        assertEquals(new Vector(0.6, 0.8, 0), new Vector(3, 4, 0).normalize(), "normalize() wrong result");
+        Vector v = new Vector(0.6, 0.8, 0);
+        Vector u = v.normalize();
+
+        // TC01: Test normalized vector is a unit vector
+        assertEquals(1, u.length(), 0.00001, "normalize() result vector isn't a unit vector");
+
+        // TC02: Test normalized vector is on the same line as the vector that was normalized
+        assertThrows(IllegalArgumentException.class, () -> v.crossProduct(u),
+                "normalize() normalized vector and the vector that was normalized are not on the same line");
+
+        // TC02: Test normalized vector is on the same line as the vector that was normalized
+        assertTrue(v.dotProduct(u) > 0, "normalize() normalized vector and the vector that was normalized are with opposite signs");
     }
 }
