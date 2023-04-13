@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added tests for point and vector">
-      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added Plane getNormal() tests">
+      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/CylinderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/TubeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
     </list>
     <list id="b7be6d28-d68e-43b6-8abb-9c728060fa40" name="Changes by Avishai" comment="">
       <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java" afterDir="false" />
     </list>
@@ -39,21 +41,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java">
+    <file path="$PROJECT_DIR$/src/geometries/Tube.java">
       <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="6" end1="6" start2="7" end2="8" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="7" end1="7" start2="9" end2="10" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
-        <range start1="9" end1="10" start2="12" end2="13" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
-        <range start1="51" end1="54" start2="54" end2="56" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="56" end1="57" start2="58" end2="59" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
-        <range start1="110" end1="112" start2="112" end2="124" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/geometries/Plane.java">
-      <ranges>
-        <range start1="49" end1="50" start2="49" end2="52" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="51" end1="51" start2="53" end2="54" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
+        <range start1="5" end1="5" start2="5" end2="7" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="34" end1="35" start2="36" end2="40" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
       </ranges>
     </file>
   </component>
@@ -110,7 +101,7 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlaneTest">
+  <component name="RunManager" selected="JUnit.TubeTest">
     <configuration name="PlaneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
@@ -141,6 +132,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SphereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unittests.geometriesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
+      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.SphereTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TubeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unittests.geometriesTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
+      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.TubeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
@@ -158,6 +179,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TubeTest" />
+        <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.PlaneTest" />
         <item itemvalue="JUnit.VectorTest" />
         <item itemvalue="JUnit.PointTest" />
@@ -175,7 +198,7 @@
       <workItem from="1679057016348" duration="8872000" />
       <workItem from="1679168202223" duration="5851000" />
       <workItem from="1679416803008" duration="7277000" />
-      <workItem from="1681377531400" duration="17973000" />
+      <workItem from="1681377531400" duration="23932000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -212,7 +235,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1681392920531</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL‎-00006" summary="added Plane getNormal() tests">
+      <created>1681398568519</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1681398568519</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +278,7 @@
     <MESSAGE value="draft 3" />
     <MESSAGE value="complete first step" />
     <MESSAGE value="added tests for point and vector" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tests for point and vector" />
+    <MESSAGE value="added Plane getNormal() tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Plane getNormal() tests" />
   </component>
 </project>

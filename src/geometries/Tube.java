@@ -4,6 +4,8 @@ import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import static primitives.Util.isZero;
+
 /**
  * class Tube is a class representing a tube
  * of Euclidean geometry in Cartesian 3-Dimensional coordinate system.
