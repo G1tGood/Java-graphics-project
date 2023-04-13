@@ -51,5 +51,6 @@ public class Plane implements Geometry{
         //representing two edges of the plane
         this.normal = p1.subtract(p0).crossProduct(p1.subtract(p2)).normalize();
         this.q0 = p0;
+
     }
 }

@@ -6,9 +6,10 @@ import primitives.Vector;
 import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;
 
+
 /**
  * Unit tests for primitives.Vector class
- * @author Avishai Schachor and Yoav Babayof
+ * @author Avishai Shachor and Yoav Babayof
  */
 class VectorTest {
     /**
@@ -54,7 +55,7 @@ class VectorTest {
         assertTrue(isZero(v1.dotProduct(v4)), "dotProduct() for two orthogonal vectors does not return 0");
 
         //TC12: test that dot product of two vectors when one of the vectors is a unit vector
-        assertEquals((0.8*3+0.6*6+0*7), v1.dotProduct(new Vector(4,3,0)),0.00001, "dotProduct() wrong result when one of the vectors is a unit vector");
+        assertEquals((0.8*3+0.6*6+0*7), v1.dotProduct((new Vector(4,3,0)).normalize()),0.00001, "dotProduct() wrong result when one of the vectors is a unit vector");
     }
 
     /**
