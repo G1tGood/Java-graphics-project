@@ -25,6 +25,8 @@ public class Point {
         this.xyz = new Double3(x,y,z);
     }
 
+
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
