@@ -1,6 +1,12 @@
 package geometries;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
+
+import static java.lang.Math.*;
+import static primitives.Util.*;
 
 /**
  * class Sphere is a class representing a sphere
@@ -31,5 +37,23 @@ public class Sphere extends RadialGeometry {
     @Override
     public Vector getNormal(Point point){
         return point.subtract(this.center).normalize();
+    }
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        double tm, d, th, t1, t2;
+        if (this.center.equals(ray.getP0())) return List.of(ray.getPoint(this.radius)); // if center of sphere and base point of ray collide, just provide the point distant distance radius from the base point
+        Vector u = this.center.subtract(ray.getP0());
+        tm = ray.getDir().dotProduct(u);
+        d = sqrt(u.lengthSquared() - pow(tm, 2));
+        if (d > this.radius || isZero(this.radius-d)) return null;
+        th = sqrt(pow(this.radius, 2) - pow(d, 2));
+        t1 = alignZero(tm - th);
+        t2 = alignZero(tm + th);
+        boolean positiveT1 = t1 > 0, positiveT2 = t2 > 0;
+        if (positiveT1 && positiveT2) return List.of(ray.getPoint(t1), ray.getPoint(t2));
+        else if (positiveT1) return List.of(ray.getPoint(t1));
+        else if (positiveT2) return List.of(ray.getPoint(t2));
+        else return null;
     }
 }

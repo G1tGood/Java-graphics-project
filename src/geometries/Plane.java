@@ -1,7 +1,12 @@
 package geometries;
 
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
+
+import static primitives.Util.*;
 
 /**
  * class Plane is a class representing a plane
@@ -52,5 +57,15 @@ public class Plane implements Geometry{
         this.normal = p1.subtract(p0).crossProduct(p1.subtract(p2)).normalize();
         this.q0 = p0;
 
+    }
+
+    @Override
+    public List<Point> findIntersections(Ray ray) {
+        if (this.q0.equals(ray.getP0())) return null;
+        double nv = this.normal.dotProduct(ray.getDir());
+        if (isZero(nv)) return null;
+        double t = alignZero(this.normal.dotProduct(this.q0.subtract(ray.getP0())) / nv);
+        if (t < 0 || isZero(t)) return null;
+        return List.of(ray.getPoint(t));
     }
 }

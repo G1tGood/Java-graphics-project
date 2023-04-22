@@ -31,6 +31,15 @@ public class Ray {
         this.dir = dir.normalize();
     }
 
+    /** returns the point distant t distance from base point in direction of the ray
+     * @param t distance across the ray
+     * @return point distant t distance from base point in direction of the ray
+     */
+    public Point getPoint(double t) {
+        if (t < 0) throw new IllegalArgumentException("point not on the ray");
+        else return this.p0.add(this.dir.scale(t));
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
