@@ -36,4 +36,40 @@ class TriangleTest {
             assertTrue(isZero(result.dotProduct(pts[i].subtract(pts[i == 0 ? 2 : i - 1]))),
                     "Triangle's normal is not orthogonal to one of the vectors of the plane");
     }
+
+    /**
+     * Test method for {@link geometries.Triangle#findIntersections(primitives.Ray)}.
+     */
+    @Test
+    void testFindIntersections() {
+        Triangle tri = new Triangle(new Point(1,0,0), new Point(0,1,0), new Point(0,0,2));
+        // ============ Equivalence Partitions Tests ==============
+        //TC01: ray does not intersect with triangle - intersection point with plane is
+        //      between two rays going from one of the vertexes of the triangle (0 points)
+        assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(3,1,3), new Vector(-7,-5,-7))), "findIntersections() throws an unexpected exception");
+        assertNull(tri.findIntersections(new Ray(new Point(3,1,3), new Vector(-7,-5,-7))), "findIntersections() returns points");
+        
+        //TC02: ray does not intersect with triangle - intersection point with plane is
+        //      between two rays going from two different the vertexes of the triangle (0 points)
+        assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(3,0,-1), new Vector(-7,-3,-3))), "findIntersections() throws an unexpected exception");
+        assertNull(tri.findIntersections(new Ray(new Point(3,0,-1), new Vector(-7,-3,-3))), "findIntersections() returns points");
+
+        //TC03: ray intersects with triangle (1 point)
+        assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(3,3,3), new Vector(-7,-7,-7))), "findIntersections() throws an unexpected exception");
+        List<Point> result = tri.findIntersections(new Ray(new Point(3,3,3), new Vector(-7,-7,-7)));
+        assertNotNull(result, "found no intersection points");
+        assertEquals(List.of(new Point(0.4,0.4,0.4)),result, "findIntersections() wrong result");
+        // =============== Boundary Values Tests ==================
+        //TC11: the point is on a continuation of one of the edges (0 point)
+        assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(0.5,0,0), new Vector(0.5,-0.2,0))), "findIntersections() throws an unexpected exception");
+        assertNull(tri.findIntersections(new Ray(new Point(0.5,0,0), new Vector(0.5,-0.2,0))), "TC11 supply intersection points when it's not supposed to");
+
+        //TC12: the point is on one of the edges (0 point)
+        assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(0.1,0.1,0), new Vector(0.5,0.5,0))), "findIntersections() throws an unexpected exception");
+        assertNull(tri.findIntersections(new Ray(new Point(0.1,0.1,0), new Vector(0.5,0.5,0))), "TC12 supply intersection points when it's not supposed to");
+
+        //TC13: the point is on one of the triangle's vertices (0 point)
+        assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(0.4,0,0), new Vector(1,0,0))), "findIntersections() throws an unexpected exception");
+        assertNull(tri.findIntersections(new Ray(new Point(0.4,0.4,0), new Vector(1,0,0))), "TC13 supply intersection points when it's not supposed to");
+    }
 }
