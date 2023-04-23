@@ -31,9 +31,9 @@ public class Triangle extends Polygon {
         Vector n2 = v2.crossProduct(v3);
         Vector n3 = v3.crossProduct(v1);
         Vector rayDir = ray.getDir();
-        double vn1 = rayDir.dotProduct(n1), vn2 = rayDir.dotProduct(n2), vn3 = rayDir.dotProduct(n3);
+        double vn1 = alignZero(rayDir.dotProduct(n1)), vn2 = alignZero(rayDir.dotProduct(n2)), vn3 = alignZero(rayDir.dotProduct(n3));
         if (isZero(vn1) || isZero(vn2) || isZero(vn3)) return null;
-        if (vn1 > 0 && vn2 > 0 && vn3 > 0 || vn1 < 0 && vn2 < 0 && vn3 < 0) return null;
-        return List.of(p);
+        if ((vn1 > 0 && vn2 > 0 && vn3 > 0) || (vn1 < 0 && vn2 < 0 && vn3 < 0)) return List.of(p);
+        return null;
     }
 }

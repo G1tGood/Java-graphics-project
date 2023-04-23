@@ -25,7 +25,20 @@ public class Point {
         this.xyz = new Double3(x,y,z);
     }
 
+    /** getter for X coordinate
+     * @return X coordinate of point
+    */
+    public double getX() {return this.xyz.d1; };
 
+    /** getter for Y coordinate
+     * @return Y coordinate of point
+     */
+    public double getY() {return this.xyz.d2; };
+
+    /** getter for Z coordinate
+     * @return Z coordinate of point
+     */
+    public double getZ() {return this.xyz.d3; };
 
     @Override
     public boolean equals(Object obj) {

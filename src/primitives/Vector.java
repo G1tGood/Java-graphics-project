@@ -53,7 +53,10 @@ public class Vector extends Point{
      * @param  factor factor for scaling the vector
      * @return     result of scale */
     public Vector scale(double factor) {
-        return new Vector(this.xyz.scale(factor));
+        return new Vector(
+                this.xyz.d1 * factor,
+                this.xyz.d2 * factor,
+                this.xyz.d3 * factor);
     }
 
     /** calculates the dot product of two vectors
