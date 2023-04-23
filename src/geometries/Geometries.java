@@ -19,7 +19,7 @@ public class Geometries implements Intersectable{
      * @param geometries array of geometries
      */
     public Geometries(Intersectable... geometries) {
-        this.geometries = List.of(geometries);
+        this.geometries = new LinkedList<Intersectable>(List.of(geometries));
     }
 
     /** Constructor that initializes Geometries with an empty list

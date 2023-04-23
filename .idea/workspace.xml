@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added test for plane, sphere intersections with a ray. added function for calculating the intersection point for them">
-      <change afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/GeometriesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added Geometries and tests for it">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Vector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
     </list>
     <list id="b7be6d28-d68e-43b6-8abb-9c728060fa40" name="Changes by Avishai" comment="Changes by Avishai">
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,18 +48,13 @@
     </option>
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java">
+    <file path="$PROJECT_DIR$/src/geometries/Geometries.java">
       <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="7" end1="7" start2="8" end2="10" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="35" end1="35" start2="38" end2="74" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/geometries/Triangle.java">
-      <ranges>
-        <range start1="25" end1="29" start2="25" end2="31" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
-        <range start1="33" end1="34" start2="35" end2="36" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="35" end1="37" start2="37" end2="39" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="21" end1="22" start2="21" end2="22" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="37" end1="38" start2="37" end2="38" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="40" end1="41" start2="40" end2="40" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
+        <range start1="42" end1="45" start2="41" end2="43" changelist="b7be6d28-d68e-43b6-8abb-9c728060fa40" />
+        <range start1="47" end1="47" start2="45" end2="51" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
       </ranges>
     </file>
   </component>
@@ -157,21 +142,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TriangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.TriangleTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="VectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
@@ -183,6 +153,20 @@
       <option name="PACKAGE_NAME" value="unittests.primitivesTests" />
       <option name="MAIN_CLASS_NAME" value="unittests.primitivesTests.VectorTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="unittests in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unittests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unittests" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,10 +188,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GeometriesTest" />
+        <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
         <item itemvalue="JUnit.VectorTest" />
         <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.unittests.geometriesTests in ISE5783_5796_8560" />
-        <item itemvalue="JUnit.TriangleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +210,7 @@
       <workItem from="1681993292722" duration="8109000" />
       <workItem from="1682081665543" duration="8271000" />
       <workItem from="1682187642680" duration="8878000" />
-      <workItem from="1682243823826" duration="6837000" />
+      <workItem from="1682243823826" duration="9068000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -312,7 +296,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682187971408</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎-00013" summary="added Geometries and tests for it">
+      <created>1682253997670</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682253997670</updated>
+    </task>
+    <task id="LOCAL‎-00014" summary="Changes by Avishai">
+      <created>1682254012484</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL‎-00014" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682254012484</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,6 +350,7 @@
     <MESSAGE value="added all test almost" />
     <MESSAGE value="finished targil 02" />
     <MESSAGE value="added test for plane, sphere intersections with a ray. added function for calculating the intersection point for them" />
+    <MESSAGE value="added Geometries and tests for it" />
     <MESSAGE value="Changes by Avishai" />
     <option name="LAST_COMMIT_MESSAGE" value="Changes by Avishai" />
   </component>
