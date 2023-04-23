@@ -23,6 +23,7 @@ public class Triangle extends Polygon {
 
     @Override
     public List<Point> findIntersections(Ray ray) {
+        if (this.plane.findIntersections(ray) == null) return null;
         Point p = this.plane.findIntersections(ray).get(0), p0 = this.vertices.get(0), p1 = this.vertices.get(1), p2 = this.vertices.get(2);
         if (p.equals(p0) || p.equals(p1) || p.equals(p2)) return null;
         Vector v1 = p0.subtract(p).normalize();

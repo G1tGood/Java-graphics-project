@@ -93,21 +93,21 @@ class SphereTest {
         result = sphere.findIntersections(new Ray(new Point (0,0,0), new Vector(1,0,0)));
         assertNotNull(result,"ray doesnt supply any intersection point" );
         assertEquals(1, result.size(), "Wrong number of points");
-        assertEquals(result, List.of(p1), "wrong result");
+        assertEquals(List.of(p1),result, "wrong result");
 
         // TC15: Ray starts inside (1 points)
         p1 = new Point(2,0,0);
         result = sphere.findIntersections(new Ray(new Point (1.5,0,0), new Vector(1,0,0)));
         assertNotNull(result,"ray doesnt supply any intersection point" );
         assertEquals(1, result.size(), "Wrong number of points");
-        assertEquals(result, List.of(p1), "wrong result");
+        assertEquals(List.of(p1),result, "wrong result");
 
         // TC16: Ray starts at the center (1 points)
         p1 = new Point(1.9486832980505138,-0.31622776601683794,0);
         result = sphere.findIntersections(new Ray(new Point (1,0,0), new Vector(3,-1,0)));
         assertNotNull(result,"ray doesnt supply any intersection point" );
         assertEquals(1, result.size(), "Wrong number of points");
-        assertEquals(result, List.of(p1), "wrong result");
+        assertEquals(List.of(p1),result, "wrong result");
 
         // TC17: Ray starts at sphere and goes outside (0 points)
         result = sphere.findIntersections(new Ray(new Point (2,0,0), new Vector(1,0,0)));
