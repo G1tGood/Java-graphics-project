@@ -3,7 +3,6 @@
  */
 package primitives;
 
-import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 /** This class will serve all primitive classes based on three numbers
@@ -27,9 +26,9 @@ public class Double3 {
     * @param d2 second number value
     * @param d3 third number value */
    public Double3(double d1, double d2, double d3) {
-      this.d1 = alignZero(d1);
-      this.d2 = alignZero(d2);
-      this.d3 = alignZero(d3);
+      this.d1 = d1;
+      this.d2 = d2;
+      this.d3 = d3;
    }
 
    /** Constructor to initialize Double3 based object the same number values

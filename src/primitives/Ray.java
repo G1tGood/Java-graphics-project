@@ -1,5 +1,7 @@
 package primitives;
 
+import static primitives.Util.isZero;
+
 /**
  * Class Ray is the basic class representing a ray of Euclidean geometry in Cartesian
  * 3-Dimensional coordinate system.
@@ -34,8 +36,10 @@ public class Ray {
     /** returns the point distant t distance from base point in direction of the ray
      * @param t distance across the ray
      * @return point distant t distance from base point in direction of the ray
+     * @throws IllegalArgumentException if t < 0
      */
     public Point getPoint(double t) {
+        if (isZero(t)) return this.p0;
         if (t < 0) throw new IllegalArgumentException("point not on the ray");
         else return this.p0.add(this.dir.scale(t));
     }
@@ -43,8 +47,9 @@ public class Ray {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj instanceof Ray other)
-            return super.equals(other);
+        if (obj instanceof Ray other) {
+            return this.p0.equals(other.p0) && this.dir.equals(other.dir);
+        }
         return false;
     }
 

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="fixed">
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="end Targil 3">
+      <change afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Double3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Double3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +101,21 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.unittests in ISE5783_5796_8560">
+    <configuration name="CameraTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unittests.rendererTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="unittests.rendererTest" />
+      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.CameraTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GeometriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
@@ -107,21 +126,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
       <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.GeometriesTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SphereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.SphereTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -173,10 +177,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
+        <item itemvalue="JUnit.CameraTest" />
         <item itemvalue="JUnit.test in ISE5783_5796_8560" />
         <item itemvalue="JUnit.GeometriesTest" />
         <item itemvalue="JUnit.VectorTest" />
-        <item itemvalue="JUnit.SphereTest" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +201,8 @@
       <workItem from="1682187642680" duration="8878000" />
       <workItem from="1682243823826" duration="9596000" />
       <workItem from="1682287900076" duration="1000" />
+      <workItem from="1682287964282" duration="275000" />
+      <workItem from="1682668917629" duration="6778000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -310,7 +316,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682256324837</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL‎-00017" summary="end Targil 3">
+      <created>1682288237830</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL‎-00017" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682288237831</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +366,7 @@
     <MESSAGE value="added Geometries and tests for it" />
     <MESSAGE value="fixed" />
     <MESSAGE value="Changes by Avishai" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by Avishai" />
+    <MESSAGE value="end Targil 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="end Targil 3" />
   </component>
 </project>

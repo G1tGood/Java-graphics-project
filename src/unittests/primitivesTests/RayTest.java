@@ -29,7 +29,7 @@ public class RayTest {
 
         // =============== Boundary Values Tests ==================
         //TC11: t = 0
-        assertThrows(IllegalArgumentException.class,
-                ()->ray.getPoint(0), "getPoint does not throw an exception for t = 0");
+        assertDoesNotThrow(()->ray.getPoint(0), "getPoint throws an and unexpected exception for t = 0");
+        assertEquals(new Point(1, 2, 3), ray.getPoint(0), "getPoint() wrong result for t = 0");
     }
 }
