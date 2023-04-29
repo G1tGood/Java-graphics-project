@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="end Targil 3">
-      <change afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added camera in renderer. added test for camera methods.">
+      <change afterPath="$PROJECT_DIR$/src/unittests/IntegrationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Double3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Double3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" afterDir="false" />
     </list>
+    <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,16 +129,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VectorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IntegrationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unittests.primitivesTests.*" />
+          <option name="PATTERN" value="unittests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unittests.primitivesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.primitivesTests.VectorTest" />
+      <option name="PACKAGE_NAME" value="unittests" />
+      <option name="MAIN_CLASS_NAME" value="unittests.IntegrationTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -177,10 +175,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
+        <item itemvalue="JUnit.IntegrationTests" />
         <item itemvalue="JUnit.CameraTest" />
         <item itemvalue="JUnit.test in ISE5783_5796_8560" />
         <item itemvalue="JUnit.GeometriesTest" />
-        <item itemvalue="JUnit.VectorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +200,8 @@
       <workItem from="1682243823826" duration="9596000" />
       <workItem from="1682287900076" duration="1000" />
       <workItem from="1682287964282" duration="275000" />
-      <workItem from="1682668917629" duration="6778000" />
+      <workItem from="1682668917629" duration="6938000" />
+      <workItem from="1682796593474" duration="5159000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -323,7 +322,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682288237831</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL‎-00018" summary="added camera in renderer. added test for camera methods.">
+      <created>1682675826114</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL‎-00018" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682675826114</updated>
+    </task>
+    <task id="LOCAL‎-00019" summary="added camera in renderer. added test for camera methods.">
+      <created>1682675836717</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL‎-00019" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682675836717</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,6 +380,7 @@
     <MESSAGE value="fixed" />
     <MESSAGE value="Changes by Avishai" />
     <MESSAGE value="end Targil 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="end Targil 3" />
+    <MESSAGE value="added camera in renderer. added test for camera methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="added camera in renderer. added test for camera methods." />
   </component>
 </project>
