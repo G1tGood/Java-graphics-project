@@ -56,7 +56,7 @@ public class IntegrationTests {
      */
     @Test
     void CameraPlaneIntersections() {
-        Camera camera = new Camera(new Point(0,0,0),new Vector(0,0,-1),new Vector(0,1,0)).setVPSize(3,3).setVPDistance(1);
+        Camera camera = new Camera(ZERO_POINT,new Vector(0,0,-1),new Vector(0,1,0)).setVPSize(3,3).setVPDistance(1);
         int nX = 3, nY = 3;
 
         // TC01: view plane is parallel to plane (9 points)
