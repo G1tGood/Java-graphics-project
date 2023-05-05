@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="added camera in renderer. added test for camera methods.">
-      <change afterPath="$PROJECT_DIR$/src/unittests/IntegrationTests.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished targil 4">
+      <change afterPath="$PROJECT_DIR$/src/lighting/AmbientLight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/primitives/Color.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/renderer/ImageWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/unittests/rendererTest/ImageWriterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/PolygonTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" afterDir="false" />
     </list>
-    <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="" />
+    <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="">
+      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +55,14 @@
         <option name="url" value="https://github.com/G1tGood/ISE5783_5796_8560.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="9" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="34" end1="34" start2="36" end2="62" changelist="ad16a710-264d-4efd-a2b2-816aa9c6e655" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -98,7 +117,7 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.unittests in ISE5783_5796_8560">
+  <component name="RunManager" selected="JUnit.RayTest">
     <configuration name="CameraTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
@@ -114,16 +133,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeometriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ImageWriterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
+          <option name="PATTERN" value="unittests.rendererTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.GeometriesTest" />
+      <option name="PACKAGE_NAME" value="unittests.rendererTest" />
+      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.ImageWriterTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,16 +163,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.*" />
+          <option name="PATTERN" value="unittests.primitivesTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="unittests.primitivesTests" />
+      <option name="MAIN_CLASS_NAME" value="unittests.primitivesTests.RayTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -174,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RayTest" />
+        <item itemvalue="JUnit.ImageWriterTest" />
         <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
         <item itemvalue="JUnit.IntegrationTests" />
         <item itemvalue="JUnit.CameraTest" />
-        <item itemvalue="JUnit.test in ISE5783_5796_8560" />
-        <item itemvalue="JUnit.GeometriesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +221,12 @@
       <workItem from="1682287900076" duration="1000" />
       <workItem from="1682287964282" duration="275000" />
       <workItem from="1682668917629" duration="6938000" />
-      <workItem from="1682796593474" duration="5159000" />
+      <workItem from="1682796593474" duration="5375000" />
+      <workItem from="1682856728924" duration="618000" />
+      <workItem from="1682867117229" duration="788000" />
+      <workItem from="1683217899310" duration="290000" />
+      <workItem from="1683218481416" duration="339000" />
+      <workItem from="1683296337967" duration="5642000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -336,7 +361,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1682675836717</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL‎-00020" summary="finished targil 4">
+      <created>1682801832236</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL‎-00020" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682801832236</updated>
+    </task>
+    <task id="LOCAL‎-00021" summary="finished targil 4">
+      <created>1682801909294</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL‎-00021" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1682801909294</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,6 +420,7 @@
     <MESSAGE value="Changes by Avishai" />
     <MESSAGE value="end Targil 3" />
     <MESSAGE value="added camera in renderer. added test for camera methods." />
-    <option name="LAST_COMMIT_MESSAGE" value="added camera in renderer. added test for camera methods." />
+    <MESSAGE value="finished targil 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished targil 4" />
   </component>
 </project>

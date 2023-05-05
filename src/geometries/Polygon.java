@@ -81,8 +81,23 @@ public class Polygon implements Geometry {
    @Override
    public Vector getNormal(Point point) { return plane.getNormal(); }
 
-    @Override
-    public List<Point> findIntersections(Ray ray) {
-        return null;
-    }
+   @Override
+   public List<Point> findIntersections(Ray ray) {
+      if (this.plane.findIntersections(ray) == null) return null;
+      Point p = this.plane.findIntersections(ray).get(0);
+      List<Vector> normals = new java.util.Vector<>();
+      Vector temp;
+      for (int i = 0; i < this.size; i++) {
+         if(this.vertices.get((i+1) % size).equals(this.vertices.get(i)) || this.vertices.get(i).equals(p)) return null;//סבבה
+         temp = (this.vertices.get((i+1) % size).subtract(this.vertices.get(i)));
+         if(temp.normalize().equals(this.vertices.get(i).subtract(p).normalize()) || temp.normalize().scale(-1).equals(this.vertices.get(i).subtract(p).normalize())) return null;
+         normals.add(temp.crossProduct(this.vertices.get(i).subtract(p)));
+      }
+      boolean flag = normals.get(0).dotProduct(normals.get(1)) < 0;
+      int result1 = 0, result2 = 0;
+      for (int i = 1; i < this.size - 1; i++) {
+         if(normals.get((i+1)%this.size).dotProduct(normals.get(0)) > 0 && flag ||normals.get((i+1)%this.size).dotProduct(normals.get(0)) < 0 && !flag) return null;
+      }
+      return List.of(p);
+   }
 }

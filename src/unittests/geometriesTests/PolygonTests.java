@@ -1,17 +1,16 @@
 package unittests.geometriesTests;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;
 
 import org.junit.jupiter.api.Test;
 
 import geometries.Polygon;
 import primitives.Point;
+import primitives.Ray;
 import primitives.Vector;
+
+import java.util.List;
 
 /** Testing Polygons
  * @author dan */
@@ -51,17 +50,17 @@ public class PolygonTests {
       assertThrows(IllegalArgumentException.class, //
                    () -> new Polygon(new Point(0, 0, 1), new Point(1, 0, 0), new Point(0, 1, 0),
                                      new Point(0, 0.5, 0.5)),
-                   "Constructed a polygon with vertix on a side");
+                   "Constructed a polygon with vertex on a side");
 
       // TC11: Last point = first point
       assertThrows(IllegalArgumentException.class, //
                    () -> new Polygon(new Point(0, 0, 1), new Point(1, 0, 0), new Point(0, 1, 0), new Point(0, 0, 1)),
-                   "Constructed a polygon with vertice on a side");
+                   "Constructed a polygon with vertices on a side");
 
       // TC12: Co-located points
       assertThrows(IllegalArgumentException.class, //
                    () -> new Polygon(new Point(0, 0, 1), new Point(1, 0, 0), new Point(0, 1, 0), new Point(0, 1, 0)),
-                   "Constructed a polygon with vertice on a side");
+                   "Constructed a polygon with vertices on a side");
 
    }
 
@@ -83,5 +82,41 @@ public class PolygonTests {
       for (int i = 0; i < 3; ++i)
          assertTrue(isZero(result.dotProduct(pts[i].subtract(pts[i == 0 ? 3 : i - 1]))),
                     "Polygon's normal is not orthogonal to one of the edges");
+   }
+
+   /**
+    * Test method for {@link geometries.Polygon#findIntersections(primitives.Ray)}.
+    */
+   @Test
+   public void testFindIntersections() {
+      Polygon pol = new Polygon(new Point(1,0,0), new Point(0,1,0), new Point(0,0,2));
+      // ============ Equivalence Partitions Tests ==============
+      //TC01: ray does not intersect with polygon - intersection point with plane is
+      //      between two rays going from one of the vertexes of the polygon (0 points)
+      assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(3,1,3), new Vector(-7,-5,-7))), "findIntersections() throws an unexpected exception");
+      assertNull(pol.findIntersections(new Ray(new Point(3,1,3), new Vector(-7,-5,-7))), "findIntersections() returns points");
+
+      //TC02: ray does not intersect with polygon- intersection point with plane is
+      //      between two rays going from two different the vertexes of the polygon (0 points)
+      assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(3,0,-1), new Vector(-7,-3,-3))), "findIntersections() throws an unexpected exception");
+      assertNull(pol.findIntersections(new Ray(new Point(3,0,-1), new Vector(-7,-3,-3))), "findIntersections() returns points");
+
+      //TC03: ray intersects with polygon (1 point)
+      assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(3,3,3), new Vector(-7,-7,-7))), "findIntersections() throws an unexpected exception");
+      List<Point> result = pol.findIntersections(new Ray(new Point(3,3,3), new Vector(-7,-7,-7)));
+      assertNotNull(result, "found no intersection points");
+      assertEquals(List.of(new Point(0.4,0.4,0.4)),result, "findIntersections() wrong result");
+      // =============== Boundary Values Tests ==================
+      //TC11: the point is on a continuation of one of the edges (0 point)
+      assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(0.5,0,0), new Vector(0.5,-0.2,0))), "findIntersections() throws an unexpected exception");
+      assertNull(pol.findIntersections(new Ray(new Point(0.5,0,0), new Vector(0.5,-0.2,0))), "TC11 supply intersection points when it's not supposed to");
+
+      //TC12: the point is on one of the edges (0 point)
+      assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(0.1,0.1,0), new Vector(0.5,0.5,0))), "findIntersections() throws an unexpected exception");
+      assertNull(pol.findIntersections(new Ray(new Point(0.1,0.1,0), new Vector(0.5,0.5,0))), "TC12 supply intersection points when it's not supposed to");
+
+      //TC13: the point is on one of the polygon's vertices (0 point)
+      assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(0.4,0,0), new Vector(1,0,0))), "findIntersections() throws an unexpected exception");
+      assertNull(pol.findIntersections(new Ray(new Point(0.4,0.4,0), new Vector(1,0,0))), "TC13 supply intersection points when it's not supposed to");
    }
 }

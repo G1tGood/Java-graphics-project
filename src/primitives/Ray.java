@@ -1,5 +1,7 @@
 package primitives;
 
+import java.util.List;
+
 import static primitives.Util.isZero;
 
 /**
@@ -42,6 +44,25 @@ public class Ray {
         if (isZero(t)) return this.p0;
         if (t < 0) throw new IllegalArgumentException("point not on the ray");
         else return this.p0.add(this.dir.scale(t));
+    }
+
+    /** returns the closest point from list of points to the head point of the ray
+     * @param points list of points
+     * @return closest point to head of the ray, or null if the given list of points is empty
+     */
+    public Point findClosestPoint(List<Point> points){
+        if (points == null || points.size() == 0) return null;
+        double distance = this.p0.distance(points.get(0));
+        double temp;
+        int closest = 0;
+        for (int i = 1; i < points.size(); ++i){
+            temp = this.p0.distance(points.get(i));
+            if(temp < distance){
+                distance = temp;
+                closest = i;
+            }
+        }
+        return points.get(closest);
     }
 
     @Override
