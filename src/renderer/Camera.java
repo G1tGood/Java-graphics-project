@@ -126,4 +126,53 @@ public class Camera {
         Vector vIJ = pIJ.subtract(this.location);
         return new Ray(this.location,vIJ);
     }
+
+    /** renders image
+     * @throws MissingResourceException if one or more of the fields of Camera were not initialized */
+    public void renderImage() {
+        if (this.vUp == null || this.vTo == null || this.vRight == null || this.vpDistance == 0.0 || this.location == null || this.vpHeight == 0.0 || this.vpWidth == 0.0 || this.imageWriter == null || this.rayTracer == null)
+            throw new MissingResourceException("one or more of the fields of Camera was not initialized", "", "");
+        int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
+        for (int i = 0; i < nY; ++i){
+            for (int j = 0; j < nX; ++j) {
+                imageWriter.writePixel(j, i, castRay(this.imageWriter.getNx(),this.imageWriter.getNy(),j,i));
+            }
+        }
+    }
+
+    /** prints grid of squares with a certain color of lines between
+     *  @param interval amount of squares in grid (must be a square number)
+     *  @param color color of lines between squares
+     *  @throws MissingResourceException if image writer field was not initialized
+     *  @throws IllegalArgumentException if interval is not a square number */
+    public void printGrid(int interval, Color color) {
+        if (imageWriter == null) throw new MissingResourceException("image writer field was not initialized", "ImageWriter", "imageWriter");
+        int line = (int) sqrt(interval);
+        if (sqrt(interval) != line) throw new IllegalArgumentException("interval is not a square number");
+        int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
+        for (int i = 0; i < nY; ++i) {
+            for (int j = 0; j < line; ++j) {
+                imageWriter.writePixel(j*nY/line,i, color);
+            }
+        }
+        for (int i = 0; i < line; ++i) {
+            for (int j = 0; j < nX; ++j) {
+                imageWriter.writePixel(j,i*nX/line, color);
+            }
+        }
+    }
+
+    /** Function writeToImage produces unoptimized png file of the image according to
+	 * pixel color matrix in the directory of the project
+     *  @throws MissingResourceException if image writer field was not initialized */
+    public void writeToImage() {
+        if (imageWriter == null) throw new MissingResourceException("image writer field was not initialized", "ImageWriter", "imageWriter");
+        this.imageWriter.writeToImage();
+    }
+
+    //casts a ray through a pixel and returns its color
+    private Color castRay(int nX, int nY, int j, int i){
+        Ray ray = this.constructRay(nX,nY,j,i);
+        return rayTracer.traceRay(ray);
+    }
 }
