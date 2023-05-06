@@ -1,29 +1,40 @@
 package renderer;
 
+import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.MissingResourceException;
+
+import static java.lang.Math.sqrt;
 import static primitives.Util.*;
 
 /** This class represents camera of scene
  * @author Yoav Babayof and Avishai Shachor
  */
 public class Camera {
-    /** location of the camera */
-    private Point location;
-    /** up vector of camera */
-    private Vector vUp;
-    /** right vector of camera */
-    private Vector vRight;
-    /** forward vector of camera */
-    private Vector vTo;
+    // ------[PUBLIC FIELDS]------- //
     /** View Plane height */
     double vpHeight;
     /** View Plane width */
     double vpWidth;
     /** View Plane distance from camera */
     double vpDistance;
+
+    // ------[PRIVATE FIELDS]------- //
+    // location of the camera
+    private Point location;
+    // up vector of camera
+    private Vector vUp;
+    // right vector of camera
+    private Vector vRight;
+    // forward vector of camera
+    private Vector vTo;
+    // image writer
+    private ImageWriter imageWriter;
+    // ray tracer
+    private RayTracerBase rayTracer;
 
     /** getter for height of View Plane
      * @return View Plane height */
@@ -55,6 +66,24 @@ public class Camera {
         this.vTo = vTo.normalize();
         if (this.vUp.dotProduct(this.vTo) == 0) this.vRight = this.vTo.crossProduct(this.vUp);
         else throw new IllegalArgumentException("up vector and forward vector must be orthogonal");
+    }
+
+    /** setter for image writer
+     * @param imageWriter image writer
+     * @return Camera
+     */
+    public Camera setImageWriter(ImageWriter imageWriter) {
+        this.imageWriter = imageWriter;
+        return this;
+    }
+
+    /** setter for ray tracer
+     * @param rayTracerBase ray tracer
+     * @return Camera
+     */
+    public Camera setRayTracer(RayTracerBase rayTracerBase) {
+        this.rayTracer = rayTracerBase;
+        return this;
     }
 
     /** setter for View Plane size
