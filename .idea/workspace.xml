@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished first half of targil 5">
-      <change afterPath="$PROJECT_DIR$/src/renderer/RayTracerBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/unittests/rendererTest/RenderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/ImageWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/ImageWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ImageWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/rendererTest/ImageWriterTest.java" afterDir="false" />
-    </list>
-    <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="Changes by Avishai">
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-    </list>
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished targil 5" />
+    <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="Changes by Avishai" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,18 +41,6 @@
         <option name="url" value="https://github.com/G1tGood/ISE5783_5796_8560.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/renderer/Camera.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="6" end1="6" start2="7" end2="11" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="12" end1="20" start2="17" end2="18" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="26" end1="26" start2="24" end2="38" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="58" end1="58" start2="70" end2="88" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="99" end1="99" start2="129" end2="178" changelist="ad16a710-264d-4efd-a2b2-816aa9c6e655" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -228,7 +206,7 @@
       <workItem from="1683218481416" duration="339000" />
       <workItem from="1683296337967" duration="5738000" />
       <workItem from="1683393380197" duration="731000" />
-      <workItem from="1683402513222" duration="8500000" />
+      <workItem from="1683402513222" duration="8607000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -391,7 +369,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1683302122977</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL‎-00024" summary="finished targil 5">
+      <created>1683411164506</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL‎-00024" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683411164506</updated>
+    </task>
+    <task id="LOCAL‎-00025" summary="Changes by Avishai">
+      <created>1683411190283</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL‎-00025" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1683411190283</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,6 +429,7 @@
     <MESSAGE value="added camera in renderer. added test for camera methods." />
     <MESSAGE value="finished targil 4" />
     <MESSAGE value="finished first half of targil 5" />
+    <MESSAGE value="finished targil 5" />
     <MESSAGE value="Changes by Avishai" />
     <option name="LAST_COMMIT_MESSAGE" value="Changes by Avishai" />
   </component>
