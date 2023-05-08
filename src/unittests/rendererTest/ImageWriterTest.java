@@ -14,8 +14,16 @@ public class ImageWriterTest {
         int nY = imageWriter.getNy();
         for (int i = 0; i < nY; ++i) {
             for (int j = 0; j < nX; ++j) {
-                if (i % 50 == 0 || j % 50 == 0)  imageWriter.writePixel(j, i, new Color(255,0,0));
-                else imageWriter.writePixel(j, i, new Color(255,255,0));
+                imageWriter.writePixel(j, i, new Color(255,255,0));
+            }
+        }        for (int i = 0; i < nY; ++i) {
+            for (int j = 0; j < nX; j+=50) {
+                imageWriter.writePixel(j, i, new Color(255,0,0));
+            }
+        }
+        for (int i = 0; i < nY; i+=50) {
+            for (int j = 0; j < nX; ++j) {
+                imageWriter.writePixel(j, i, new Color(255,0,0));
             }
         }
         imageWriter.writeToImage();

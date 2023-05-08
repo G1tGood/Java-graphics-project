@@ -7,7 +7,6 @@ import primitives.Vector;
 
 import java.util.MissingResourceException;
 
-import static java.lang.Math.sqrt;
 import static primitives.Util.*;
 
 /** This class represents camera of scene
@@ -141,23 +140,20 @@ public class Camera {
     }
 
     /** prints grid of squares with a certain color of lines between
-     *  @param interval amount of squares in grid (must be a square number)
+     *  @param interval interval between lines of grid
      *  @param color color of lines between squares
-     *  @throws MissingResourceException if image writer field was not initialized
-     *  @throws IllegalArgumentException if interval is not a square number */
+     *  @throws MissingResourceException if image writer field was not initialized */
     public void printGrid(int interval, Color color) {
         if (imageWriter == null) throw new MissingResourceException("image writer field was not initialized", "ImageWriter", "imageWriter");
-        int line = (int) sqrt(interval);
-        if (sqrt(interval) != line) throw new IllegalArgumentException("interval is not a square number");
         int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
-        for (int i = 0; i < nY; ++i) {
-            for (int j = 0; j < line; ++j) {
-                imageWriter.writePixel(j*nY/line,i, color);
+        for (int j = 0; j < nX; j+=interval) {
+            for (int i = 0; i < nY; ++i) {
+                imageWriter.writePixel(j,i, color);
             }
         }
-        for (int i = 0; i < line; ++i) {
+        for (int i = 0; i < nY; i+=interval) {
             for (int j = 0; j < nX; ++j) {
-                imageWriter.writePixel(j,i*nX/line, color);
+                imageWriter.writePixel(j,i, color);
             }
         }
     }
@@ -175,4 +171,6 @@ public class Camera {
         Ray ray = this.constructRay(nX,nY,j,i);
         return rayTracer.traceRay(ray);
     }
+
+    // TODO: implement camera rotation (bonus)
 }

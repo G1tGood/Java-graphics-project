@@ -25,12 +25,21 @@ public class GeometriesTest {
     void testFindIntersections() {
         // ============ Equivalence Partitions Tests ==============
         // TC01: some geometries intersect with ray and some do not
-        Geometries geometries = new Geometries(new Sphere(new Point (1, 0, 0), 1d), new Triangle(new Point(1,0,0), new Point(0,1,0), new Point(0,0,2)), new Plane(new Point(1,0,0), new Point(0,1,0), new Point(0,0,1)));
+        Geometries geometries = new Geometries(
+                new Sphere(new Point (1, 0, 0), 1d),
+                new Triangle(new Point(1,0,0), new Point(0,1,0), new Point(0,0,2)),
+                new Plane(new Point(1,0,0), new Point(0,1,0), new Point(0,0,1))
+        );
         Ray finalRay = new Ray(new Point(1,1,1.5),new Vector(-3,-2,-2.5));
-        assertDoesNotThrow(()->geometries.findIntersections(finalRay), "findIntersection() throws an unexpected exception");
+        assertDoesNotThrow(()->geometries.findIntersections(finalRay),
+                "findIntersection() throws an unexpected exception");
         List<Point> result = geometries.findIntersections(finalRay);
-        assertNotNull(result, "findIntersection() does not find any intersections");
-        assertEquals(2, result.size(), "findIntersection() wrong result");
+        assertNotNull(result,
+                "findIntersection() does not find any intersections");
+        assertEquals(
+                2,
+                result.size(),
+                "findIntersection() wrong result");
 
         // =============== Boundary Values Tests ==================
         // TC11: Geometries does not contain any geometries - empty list (0 points)
