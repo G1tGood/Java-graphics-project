@@ -127,8 +127,9 @@ public class Camera {
     }
 
     /** renders image
-     * @throws MissingResourceException if one or more of the fields of Camera were not initialized */
-    public void renderImage() {
+     * @throws MissingResourceException if one or more of the fields of Camera were not initialized
+     * @return Camera */
+    public Camera renderImage() {
         if (this.vUp == null || this.vTo == null || this.vRight == null || this.vpDistance == 0.0 || this.location == null || this.vpHeight == 0.0 || this.vpWidth == 0.0 || this.imageWriter == null || this.rayTracer == null)
             throw new MissingResourceException("one or more of the fields of Camera was not initialized", "", "");
         int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
@@ -137,6 +138,7 @@ public class Camera {
                 imageWriter.writePixel(j, i, castRay(this.imageWriter.getNx(),this.imageWriter.getNy(),j,i));
             }
         }
+        return this;
     }
 
     /** prints grid of squares with a certain color of lines between

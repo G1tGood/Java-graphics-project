@@ -44,13 +44,13 @@ public class Ray {
         else return this.p0.add(this.dir.scale(t));
     }
 
-    /** returns the closest point from list of points to the head point of the ray
-     * @param points list of points
-     * @return closest point to head of the ray, or null if the given list of points is empty
+    /** returns the closest GeoPoint from list of GeoPoints to the head point of the ray
+     * @param geoPoints list of points
+     * @return GeoPoint with point closest to head of the ray, or null if the given list of geoPoints is empty
      */
-    public Point findClosestPoint(List<Point> points){
-        if (points == null || points.size() == 0) return null;
-        double distance = this.p0.distance(points.get(0));
+    public GeoPoint findClosestGeoPoint(List<GeoPoint> geoPoints){
+        if (geoPoints == null || geoPoints.size() == 0) return null;
+        double distance = this.p0.distance(geoPoints.get(0).point);
         double temp;
         int closest = 0;
         for (int i = 1; i < points.size(); ++i){
@@ -60,7 +60,16 @@ public class Ray {
                 closest = i;
             }
         }
-        return points.get(closest);
+        return geoPoints.get(closest);
+    }
+
+    /** returns the closest point from list of points to the head point of the ray
+     * @param points list of points
+     * @return closest point to head of the ray, or null if the given list of points is empty
+     */
+    public Point findClosestPoint(List<Point> points) {
+        return points == null || points.isEmpty() ? null
+                : findClosestGeoPoint(points.stream().map(p -> new GeoPoint(null, p)).toList()).point;
     }
 
     @Override

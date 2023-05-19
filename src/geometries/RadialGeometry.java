@@ -7,7 +7,7 @@ import primitives.Util;
  * with a radius of Euclidean geometry in Cartesian 3-Dimensional coordinate system.
  * @author Yoav Babayof and Avishai Shachor
  */
-public abstract class RadialGeometry implements Geometry{
+public abstract class RadialGeometry extends Geometry{
     /** radius of the geometry */
     final protected double radius;
 

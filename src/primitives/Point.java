@@ -25,6 +25,9 @@ public class Point {
         this.xyz = new Double3(x,y,z);
     }
 
+    /** ZERO point */
+    public static final Point ZERO = new Point(0,0,0);
+
     /** getter for X coordinate
      * @return X coordinate of point
     */

@@ -38,7 +38,7 @@ public class Sphere extends RadialGeometry {
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         double tm, d, th, t1, t2;
         if (this.center.equals(ray.getP0())) return List.of(ray.getPoint(this.radius)); // if center of sphere and base point of ray collide, just provide the point distant distance radius from the base point
         Vector u = this.center.subtract(ray.getP0());

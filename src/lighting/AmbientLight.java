@@ -6,10 +6,7 @@ import primitives.Double3;
 /** class representing ambient lighting for scene
  * @author Avishai Shachor and Yoav Babayoff
  */
-public class AmbientLight {
-    /** intensity of light */
-    Color intensity;
-
+public class AmbientLight extends Light {
     /** no ambient light */
     public static final AmbientLight NONE = new AmbientLight(Color.BLACK, Double3.ZERO);
 
@@ -18,7 +15,7 @@ public class AmbientLight {
      * @param kA attenuation coefficient of light
      */
     public AmbientLight(Color iA, double kA){
-        this.intensity = iA.scale(kA);
+        super(iA.scale(kA));
     }
 
     /** constructor for AmbientLight
@@ -26,12 +23,6 @@ public class AmbientLight {
      * @param kA attenuation coefficient of light
      */
     public AmbientLight(Color iA, Double3 kA){
-        this.intensity = iA.scale(kA);
-    }
-
-    /** getter for intensity of ambient light
-     * @return intensity of ambient light */
-    public Color getIntensity() {
-        return intensity;
+        super(iA.scale(kA));
     }
 }

@@ -11,7 +11,7 @@ import primitives.Vector;
 /** Polygon class represents two-dimensional polygon in 3D Cartesian coordinate
  * system
  * @author Dan */
-public class Polygon implements Geometry {
+public class Polygon extends Geometry {
    /** List of polygon's vertices */
    protected final List<Point> vertices;
    /** Associated plane in which the polygon lays */
@@ -82,10 +82,12 @@ public class Polygon implements Geometry {
    public Vector getNormal(Point point) { return plane.getNormal(); }
 
    @Override
-   public List<Point> findIntersections(Ray ray) {
-      if (this.plane.findIntersections(ray) == null) return null;
-      Point p = this.plane.findIntersections(ray).get(0);
-      List<Vector> normals = new java.util.Vector<>();
+   public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
+      List<GeoPoint> intersections = this.plane.findGeoIntersections(ray);
+      if (intersections == null) return null;
+      intersections.get(0).geometry = this;
+      Point p = intersections.get(0).point;
+      List<Vector> normals = new java.util.LinkedList<>();
       Vector temp;
       for (int i = 0; i < this.size; i++) {
          if(this.vertices.get((i+1) % size).equals(this.vertices.get(i)) || this.vertices.get(i).equals(p)) return null;//סבבה
@@ -94,7 +96,6 @@ public class Polygon implements Geometry {
          normals.add(temp.crossProduct(this.vertices.get(i).subtract(p)));
       }
       boolean flag = normals.get(0).dotProduct(normals.get(1)) < 0;
-      int result1 = 0, result2 = 0;
       for (int i = 1; i < this.size - 1; i++) {
          if(normals.get((i+1)%this.size).dotProduct(normals.get(0)) > 0 && flag ||normals.get((i+1)%this.size).dotProduct(normals.get(0)) < 0 && !flag) return null;
       }

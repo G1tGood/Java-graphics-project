@@ -13,7 +13,7 @@ import static primitives.Util.*;
  * of Euclidean geometry in Cartesian 3-Dimensional coordinate system.
  * @author Yoav Babayof and Avishai Shachor
  */
-public class Plane implements Geometry{
+public class Plane extends Geometry{
     /** point in plane */
     Point q0;
     /** normal vector to the plane */
@@ -60,7 +60,7 @@ public class Plane implements Geometry{
     }
 
     @Override
-    public List<Point> findIntersections(Ray ray) {
+    public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         if (this.q0.equals(ray.getP0())) return null;
         double nv = this.normal.dotProduct(ray.getDir());
         if (isZero(nv)) return null;
