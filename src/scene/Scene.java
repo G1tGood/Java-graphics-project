@@ -63,7 +63,7 @@ public class Scene {
     }
 
     /** setter for lights in scene
-     * @param light lights in scene
+     * @param lights lights in scene
      * @return scene
      */
     public Scene setLights(List<LightSource> lights) {
