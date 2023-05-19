@@ -5,6 +5,9 @@ import lighting.AmbientLight;
 import lighting.LightSource;
 import primitives.Color;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /** class representing a scene
  * @author Avishai Sachor and Yoav Babayoff
  */

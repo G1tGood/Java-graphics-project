@@ -40,7 +40,7 @@ public class Sphere extends RadialGeometry {
     @Override
     public List<GeoPoint> findGeoIntersectionsHelper(Ray ray) {
         double tm, d, th, t1, t2;
-        if (this.center.equals(ray.getP0())) return List.of(ray.getPoint(this.radius)); // if center of sphere and base point of ray collide, just provide the point distant distance radius from the base point
+        if (this.center.equals(ray.getP0())) return List.of(new GeoPoint(this, ray.getPoint(this.radius))); // if center of sphere and base point of ray collide, just provide the point distant distance radius from the base point
         Vector u = this.center.subtract(ray.getP0());
         tm = alignZero(ray.getDir().dotProduct(u));
         d = sqrt(u.lengthSquared() - pow(tm, 2));
@@ -49,9 +49,9 @@ public class Sphere extends RadialGeometry {
         t1 = alignZero(tm - th);
         t2 = alignZero(tm + th);
         boolean positiveT1 = t1 > 0, positiveT2 = t2 > 0;
-        if (positiveT1 && positiveT2) return List.of(ray.getPoint(t1), ray.getPoint(t2));
-        else if (positiveT1) return List.of(ray.getPoint(t1));
-        else if (positiveT2) return List.of(ray.getPoint(t2));
-        else return null;
+        if (positiveT1 && positiveT2) return List.of(new GeoPoint(this, ray.getPoint(t1)), new GeoPoint(this, ray.getPoint(t2)));
+        else if (positiveT1) return List.of(new GeoPoint(this, ray.getPoint(t1)));
+        else if (positiveT2) return List.of(new GeoPoint(this, ray.getPoint(t2)));
+         else return null;
     }
 }

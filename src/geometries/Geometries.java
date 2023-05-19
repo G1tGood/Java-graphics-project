@@ -12,7 +12,7 @@ import java.util.List;
  * class Geometries is a class representing a composition of geometries
  * @author Yoav Babayof and Avishai Shachor
  */
-public class Geometries implements Intersectable{
+public class Geometries extends Intersectable{
     /** list of Intersectables */
     private List<Intersectable> geometries;
 

@@ -99,6 +99,6 @@ public class Polygon extends Geometry {
       for (int i = 1; i < this.size - 1; i++) {
          if(normals.get((i+1)%this.size).dotProduct(normals.get(0)) > 0 && flag ||normals.get((i+1)%this.size).dotProduct(normals.get(0)) < 0 && !flag) return null;
       }
-      return List.of(p);
+      return List.of(new GeoPoint(this,p));
    }
 }
