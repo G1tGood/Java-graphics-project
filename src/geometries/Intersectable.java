@@ -22,15 +22,27 @@ public abstract class Intersectable {
         return geoList == null ? null : geoList.stream().map(gp -> gp.point).toList();
     }
 
-    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray);
+    /** helper function for findGeoIntersections
+     * @param ray ray of which we find intersections with
+     * @return list of all GeoPoints of intersection
+     */
+    protected abstract List<GeoPoint> findGeoIntersectionsHelper(Ray ray, double maxDistance);
 
-    /**
-     * Returns a lists of intersection geoPoints (geometry and point) between geometry\ies and ray
+    /** Returns a lists of intersection geoPoints (geometry and point) between geometry\ies and ray
      * @param ray ray that intersects the geometry\ies
      * @return list of intersection geoPoints (geometry and point)
      */
     public final List<GeoPoint> findGeoIntersections(Ray ray) {
-        return this.findGeoIntersectionsHelper(ray);
+        return this.findGeoIntersections(ray, Double.POSITIVE_INFINITY);
+    }
+
+    /** Returns a lists of intersection geoPoints (geometry and point) between geometry\ies and ray up to a certain distance
+     * @param ray ray that intersects the geometry\ies
+     * @param maxDistance maximum distance of points from ray base
+     * @return a lists of intersection geoPoints (geometry and point) between geometry\ies and ray up to a certain distance
+     */
+    public final List<GeoPoint> findGeoIntersections(Ray ray, double maxDistance) {
+        return findGeoIntersectionsHelper(ray, maxDistance);
     }
 
     /** a PDS representing a Geometry and a point on it */
