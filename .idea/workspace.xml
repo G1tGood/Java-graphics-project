@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished targil 6">
-      <change afterPath="$PROJECT_DIR$/src/unittests/rendererTest/ShadowTests.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="PR07.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Cylinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Cylinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Intersectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Intersectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Tube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Tube.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/DirectionalLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/LightSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/LightSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lighting/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lighting/PointLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/Main.java" afterDir="false" />
     </list>
     <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="Changes by Avishai" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,23 +104,21 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ShadowTests.sphereTriangleMove2">
-    <configuration name="ShadowTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.unittests in ISE5783_5796_8560">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Main" />
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unittests.rendererTest.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unittests.rendererTest" />
-      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.ShadowTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShadowTests.sphereTriangleMove1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReflectionRefractionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
@@ -138,9 +127,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unittests.rendererTest" />
-      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.ShadowTests" />
-      <option name="METHOD_NAME" value="sphereTriangleMove1" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.ReflectionRefractionTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,23 +149,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShadowTests.sphereTriangleSpot1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="unittests in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unittests.rendererTest.*" />
+          <option name="PATTERN" value="unittests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unittests.rendererTest" />
-      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.ShadowTests" />
-      <option name="METHOD_NAME" value="sphereTriangleSpot1" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="unittests" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShadowTests.sphereTriangleSpot2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="unittests.rendererTest in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
@@ -186,20 +172,18 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="unittests.rendererTest" />
-      <option name="MAIN_CLASS_NAME" value="unittests.rendererTest.ShadowTests" />
-      <option name="METHOD_NAME" value="sphereTriangleSpot2" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
+        <item itemvalue="JUnit.unittests.rendererTest in ISE5783_5796_8560" />
+        <item itemvalue="JUnit.ReflectionRefractionTests" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ShadowTests.sphereTriangleMove2" />
-        <item itemvalue="JUnit.ShadowTests.sphereTriangleMove1" />
-        <item itemvalue="JUnit.ShadowTests.sphereTriangleSpot2" />
-        <item itemvalue="JUnit.ShadowTests.sphereTriangleSpot1" />
-        <item itemvalue="JUnit.ShadowTests" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +218,7 @@
       <workItem from="1684153495769" duration="7266000" />
       <workItem from="1684487071581" duration="11972000" />
       <workItem from="1684787536086" duration="48000" />
-      <workItem from="1685615443773" duration="6261000" />
+      <workItem from="1685615443773" duration="18404000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -446,7 +430,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1684499115804</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL‎-00031" summary="PR07.1">
+      <created>1685622667146</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL‎-00031" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1685622667146</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,6 +486,12 @@
     <MESSAGE value="finished targil 5" />
     <MESSAGE value="Changes by Avishai" />
     <MESSAGE value="finished targil 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished targil 6" />
+    <MESSAGE value="PR07.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR07.1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Geometries_java$ShadowTests_sphereTriangleMove2.ic" NAME="ShadowTests.sphereTriangleMove2 Coverage Results" MODIFIED="1685622614546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>unittests.rendererTest.*</FILTER>
+    </SUITE>
   </component>
 </project>

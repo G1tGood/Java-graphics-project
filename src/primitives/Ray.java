@@ -2,6 +2,7 @@ package primitives;
 
 import java.util.List;
 
+import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 import geometries.Intersectable.GeoPoint;
@@ -12,6 +13,9 @@ import geometries.Intersectable.GeoPoint;
  * @author Yoav Babayof and Avishai Shachor
  */
 public class Ray {
+    /** ray base shifting constant */
+    private static final double DELTA = 0.1;
+
     /** starting point of the ray */
     final Point p0;
     /** direction vector of the ray */
@@ -35,6 +39,20 @@ public class Ray {
     public Ray(Point p0, Vector dir) {
         this.p0 = p0;
         this.dir = dir.normalize();
+    }
+
+    /** Constructor to initialize Ray based on a point, light direction and a given normal to geometry at a certain point
+     * the constructor builds the ray moved in the towards the light source on normal by DELTA
+     * @param p0 starting point of the ray
+     * @param dir direction of light
+     * @param n given normal to geometry at a certain point
+     */
+    public Ray(Point p0, Vector dir, Vector n) {
+        this.dir = dir.normalize();
+        double nDir = alignZero(dir.dotProduct(n));
+        if (isZero(nDir)) this.p0 = p0;
+        else if (nDir < 0) this.p0 = p0.add(n.scale(-DELTA));
+        else this.p0 = p0.add(n.scale(DELTA));
     }
 
     /** returns the point distant t distance from base point in direction of the ray
