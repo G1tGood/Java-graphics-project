@@ -1,4 +1,4 @@
-package unittests.geometriesTests;
+package geometriesTests;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;

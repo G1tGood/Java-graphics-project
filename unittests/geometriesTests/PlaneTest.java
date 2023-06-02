@@ -1,4 +1,4 @@
-package unittests.geometriesTests;
+package geometriesTests;
 import geometries.Intersectable;
 import geometries.Plane;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package unittests.rendererTest;
+package rendererTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 

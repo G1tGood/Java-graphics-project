@@ -1,4 +1,4 @@
-package unittests.lightingTests;
+package lightingTests;
 
 import static java.awt.Color.*;
 

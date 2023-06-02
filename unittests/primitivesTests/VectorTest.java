@@ -1,4 +1,4 @@
-package unittests.primitivesTests;
+package primitivesTests;
 
 import org.junit.jupiter.api.Test;
 import primitives.Vector;

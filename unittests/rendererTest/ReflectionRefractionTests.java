@@ -1,7 +1,4 @@
-/**
- * 
- */
-package unittests.rendererTest;
+package rendererTest;
 
 import static java.awt.Color.*;
 
