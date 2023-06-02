@@ -1,5 +1,3 @@
-package unittests;
-
 import static org.junit.jupiter.api.Assertions.*;
 import geometries.Intersectable;
 import geometries.Plane;

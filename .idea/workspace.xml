@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="PR07.2">
-      <change afterPath="$PROJECT_DIR$/src/unittests/rendererTest/ReflectionRefractionTests.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished targil 7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/RayTracerBasic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/GeometriesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/PolygonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/IntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/IntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/CylinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/GeometriesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/PlaneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/PolygonTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/SphereTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/TubeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/lightingTests/LightsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/lightingTests/LightsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitivesTests/PointTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitivesTests/RayTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitivesTests/VectorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/CameraTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ImageWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ImageWriterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ReflectionRefractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ReflectionRefractionTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/RenderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/RenderTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ShadowTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ShadowTests.java" afterDir="false" />
     </list>
     <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="Changes by Avishai" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +109,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yoavb\IdeaProjects\ISE5783_5796_8560\unitests" />
       <recent name="C:\Users\יואב בביוף\IdeaProjects\ISE5783_5796_8560\unitests" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="unittests" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="unittests.geometriesTests" />
@@ -107,18 +121,11 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.unittests in ISE5783_5796_8560">
-    <configuration name="GeometriesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in ISE5783_5796_8560">
+    <configuration name="All in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.GeometriesTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,11 +191,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ISE5783_5796_8560" />
         <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
         <item itemvalue="JUnit.SphereTest" />
         <item itemvalue="JUnit.PolygonTests" />
         <item itemvalue="JUnit.TriangleTest" />
-        <item itemvalue="JUnit.GeometriesTest" />
       </list>
     </recent_temporary>
   </component>
@@ -224,7 +231,8 @@
       <workItem from="1684487071581" duration="11972000" />
       <workItem from="1684787536086" duration="48000" />
       <workItem from="1685615443773" duration="21520000" />
-      <workItem from="1685700434685" duration="6550000" />
+      <workItem from="1685700434685" duration="6755000" />
+      <workItem from="1685707486752" duration="579000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -450,7 +458,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1685650488171</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL‎-00033" summary="finished targil 7">
+      <created>1685707222798</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL‎-00033" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1685707222798</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,13 +516,14 @@
     <MESSAGE value="finished targil 6" />
     <MESSAGE value="PR07.1" />
     <MESSAGE value="PR07.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR07.2" />
+    <MESSAGE value="finished targil 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished targil 7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/unittests/rendererTest/ReflectionRefractionTests.java</url>
+          <url>file://$PROJECT_DIR$/unittests/rendererTest/ReflectionRefractionTests.java</url>
           <line>126</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
