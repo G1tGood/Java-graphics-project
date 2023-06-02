@@ -3,6 +3,7 @@ package unittests.geometriesTests;
 import static org.junit.jupiter.api.Assertions.*;
 import static primitives.Util.isZero;
 
+import geometries.Intersectable;
 import org.junit.jupiter.api.Test;
 
 import geometries.Polygon;
@@ -118,5 +119,36 @@ public class PolygonTests {
       //TC13: the point is on one of the polygon's vertices (0 point)
       assertDoesNotThrow(()->pol.findIntersections(new Ray(new Point(0.4,0,0), new Vector(1,0,0))), "findIntersections() throws an unexpected exception");
       assertNull(pol.findIntersections(new Ray(new Point(0.4,0.4,0), new Vector(1,0,0))), "TC13 supply intersection points when it's not supposed to");
+   }
+
+   /** Test method for {@link geometries.Polygon#findGeoIntersections(Ray, double)}. */
+   @Test
+   void findIntersectionsWithMaxDistanceTest() {
+      Polygon polygon = new Polygon(
+              new Point(0,-1,-1),
+              new Point(0, 1 ,-1),
+              new Point(0,0,1)
+      );
+      Ray ray = new Ray(
+              new Point(4,0,0),
+              new Vector(-1,0,0)
+      );
+      // ============ Equivalence Partitions Tests ==============
+      // TC01: ray intersects the polygon (1 point)
+      List<Intersectable.GeoPoint> result =
+              polygon.findGeoIntersections(ray, 30);
+      assertEquals(1, result.size(),
+              "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+      // TC02: ray does not intersect the polygon (0 points)
+      result = polygon.findGeoIntersections(ray, 2);
+      assertNull(result,
+              "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+      // =============== Boundary Values Tests ==================
+      // TC11: ray exactly intersects the polygon (1 point)
+      result = polygon.findGeoIntersections(ray, 4);
+      assertEquals(1, result.size(),
+              "findGeoIntersection(Ray, MaxDistance) wrong result");
    }
 }

@@ -58,7 +58,7 @@ public class RayTracerBasic extends RayTracerBase {
      * @return color of the geometry at the intersection point starting at a certain level and accumulating attenuation coefficient
      */
     private Color calcColor(GeoPoint intersection, Ray ray, int level, Double3 k) {
-        Color color = calcLocalEffects(intersection, ray);
+        Color color = calcLocalEffects(intersection, ray, k);
         return 1 == level ? color
                           : color.add(calcGlobalEffects(intersection, ray, level, k));
     }
@@ -121,9 +121,10 @@ public class RayTracerBasic extends RayTracerBase {
      * calculates local effects of intersection between ray and geometry
      * @param gp  GeoPoint (point and geometry)
      * @param ray ray
+     * @param k accumulating attenuation coefficient
      * @return final light affected by local effects of intersection between ray and geometry
      */
-    private Color calcLocalEffects(GeoPoint gp, Ray ray) {
+    private Color calcLocalEffects(GeoPoint gp, Ray ray, Double3 k) {
         Color color = gp.geometry.getEmission();
         Vector v = ray.getDir();
         Vector n = gp.geometry.getNormal(gp.point);
@@ -134,8 +135,10 @@ public class RayTracerBasic extends RayTracerBase {
             Vector l = lightSource.getL(gp.point);
             double nl = alignZero(n.dotProduct(l));
             if (nl * nv > 0) { // sign(nl) == sign(nv)
-                if (unshaded(gp, lightSource, l, n)) {
-                    Color iL = lightSource.getIntensity(gp.point);
+                Double3 ktr = transparency(gp, lightSource, l, n);
+                Double3 kktr = ktr.product(k);
+                if (!kktr.lowerThan(MIN_CALC_COLOR_K) && !kktr.equals(new Double3(MIN_CALC_COLOR_K))) {
+                    Color iL = lightSource.getIntensity(gp.point).scale(ktr);
                     color = color.add(iL.scale(calcDiffusive(material, nl)),
                             iL.scale(calcSpecular(material, n, l, nl, v)));
                 }
@@ -172,24 +175,24 @@ public class RayTracerBasic extends RayTracerBase {
     }
 
     /**
-     * calculates weather or not a point is shaded from a light from a light source
+     * calculates transparency of point that is shaded from a light from a light source
      * @param gp    the GeoPoint
-     * @param light the light from which we check shading
+     * @param light the light source
      * @param l     direction vector from light source to point
      * @param n     normal to the geometry at point
-     * @return weather or not a point is shaded from a light from a light source
+     * @return transparency of points in geometry
      */
-    private boolean unshaded(GeoPoint gp, LightSource light, Vector l, Vector n) {
+    private Double3 transparency(GeoPoint gp, LightSource light, Vector l, Vector n) {
         Vector lightDirection = l.scale(-1); // from point to light source
         Ray lightRay = new Ray(gp.point, lightDirection, n);
         List<GeoPoint> intersections = scene.geometries.findGeoIntersections(lightRay, light.getDistance(gp.point));
-
-        if (intersections == null) return true;
+        if (intersections == null) return Double3.ONE;
+        Double3 ktr = Double3.ONE;
         for (GeoPoint intersection: intersections) {
-            if (intersection.geometry.getMaterial().kT.equals(Double3.ZERO))
-                return false;
+            ktr = ktr.product(intersection.geometry.getMaterial().kT);
+            if (ktr.lowerThan(MIN_CALC_COLOR_K)) return Double3.ZERO;
         }
-        return true;
+        return ktr;
     }
 
     /**

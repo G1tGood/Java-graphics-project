@@ -1,5 +1,6 @@
 package unittests.geometriesTests;
 
+import geometries.Intersectable;
 import geometries.Triangle;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
@@ -71,5 +72,36 @@ class TriangleTest {
         //TC13: the point is on one of the triangle's vertices (0 point)
         assertDoesNotThrow(()->tri.findIntersections(new Ray(new Point(0.4,0,0), new Vector(1,0,0))), "findIntersections() throws an unexpected exception");
         assertNull(tri.findIntersections(new Ray(new Point(0.4,0.4,0), new Vector(1,0,0))), "TC13 supply intersection points when it's not supposed to");
+    }
+
+    /** Test method for {@link geometries.Triangle#findGeoIntersections(Ray, double)}. */
+    @Test
+    void findIntersectionsWithMaxDistanceTest() {
+        Triangle triangle = new Triangle(
+                new Point(0,-1,-1),
+                new Point(0, 1 ,-1),
+                new Point(0,0,1)
+        );
+        Ray ray = new Ray(
+                new Point(4,0,0),
+                new Vector(-1,0,0)
+        );
+        // ============ Equivalence Partitions Tests ==============
+        // TC01: ray intersects the triangle (1 point)
+        List<Intersectable.GeoPoint> result =
+                triangle.findGeoIntersections(ray, 30);
+        assertEquals(1, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC02: ray does not intersect the triangle (0 points)
+        result = triangle.findGeoIntersections(ray, 2);
+        assertNull(result,
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // =============== Boundary Values Tests ==================
+        // TC11: ray exactly intersects the triangle (1 point)
+        result = triangle.findGeoIntersections(ray, 4);
+        assertEquals(1, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
     }
 }

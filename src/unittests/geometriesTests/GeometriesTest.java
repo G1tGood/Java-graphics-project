@@ -1,9 +1,6 @@
 package unittests.geometriesTests;
 
-import geometries.Geometries;
-import geometries.Plane;
-import geometries.Sphere;
-import geometries.Triangle;
+import geometries.*;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
 import primitives.Ray;
@@ -66,5 +63,64 @@ public class GeometriesTest {
         result = geometries.findIntersections(finalRay4);
         assertNotNull(result, "findIntersection() does not find any intersections");
         assertEquals(4, result.size(), "findIntersection() wrong result");
+    }
+
+    /** Test method for {@link geometries.Geometries#findGeoIntersections(Ray, double)}. */
+    @Test
+    void findIntersectionsWithMaxDistanceTest() {
+        Geometries geometries = new Geometries(
+                new Sphere(
+                        new Point (5, 5, 0),
+                        1d),
+                new Triangle(
+                        new Point(1,0,0),
+                        new Point(0,1,0),
+                        new Point(0,0,1))
+                );
+        Ray ray = new Ray(
+                new Point(6,6,0),
+                new Vector(-1,-1,0.05)
+        );
+        // ============ Equivalence Partitions Tests ==============
+        // TC01: intersects sphere twice and triangle once (3 points)
+        List<Intersectable.GeoPoint> result =
+                geometries.findGeoIntersections(ray, 30);
+        assertEquals(3, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC02: intersects sphere twice (2 points)
+        result = geometries.findGeoIntersections(ray, 3);
+        assertEquals(2, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC03: intersects sphere once (1 point)
+        result = geometries.findGeoIntersections(ray, 1);
+        assertEquals(1, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC04: does not intersect anything (0 points)
+        result = geometries.findGeoIntersections(ray, 0.001);
+        assertNull(result,
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // =============== Boundary Values Tests ==================
+        // TC11: ray exactly intersects plane (3 points)
+        geometries = new Geometries(
+                new Sphere(
+                        new Point (5, 0, 0),
+                        1d
+                ),
+                new Plane(
+                        new Point(0,0,0),
+                        new Vector(1,0,0)
+                )
+        );
+        ray = new Ray(
+                new Point(7,0,0),
+                new Vector(-1,0,0)
+        );
+        result = geometries.findGeoIntersections(ray, 7);
+        assertEquals(3, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
     }
 }

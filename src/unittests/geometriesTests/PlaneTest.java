@@ -1,4 +1,5 @@
 package unittests.geometriesTests;
+import geometries.Intersectable;
 import geometries.Plane;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
@@ -108,5 +109,35 @@ class PlaneTest {
         // TC17: Ray base point is the point that represent the plane (0 points)
         result = plane.findIntersections(new Ray(new Point(1,0,0), new Vector(1, 1, 0)));
         assertNull(result, "TC17 supply intersection points when it's not supposed to");
+    }
+
+    /** Test method for {@link geometries.Plane#findGeoIntersections(Ray, double)}. */
+    @Test
+    void findIntersectionsWithMaxDistanceTest() {
+        Plane plane = new Plane(
+                new Point(0,0,0),
+                new Vector(1, 0 ,0)
+        );
+        Ray ray = new Ray(
+                new Point(4,0,0),
+                new Vector(-1,0,0)
+        );
+        // ============ Equivalence Partitions Tests ==============
+        // TC01: ray intersects the plane (1 point)
+        List<Intersectable.GeoPoint> result =
+                plane.findGeoIntersections(ray, 30);
+        assertEquals(1, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC02: ray does not intersect the plane (0 points)
+        result = plane.findGeoIntersections(ray, 2);
+        assertNull(result,
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // =============== Boundary Values Tests ==================
+        // TC11: ray exactly intersects the plane (1 point)
+        result = plane.findGeoIntersections(ray, 4);
+        assertEquals(1, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
     }
 }

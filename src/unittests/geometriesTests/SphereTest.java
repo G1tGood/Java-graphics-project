@@ -1,5 +1,6 @@
 package unittests.geometriesTests;
 
+import geometries.Intersectable;
 import geometries.Sphere;
 import org.junit.jupiter.api.Test;
 import primitives.Point;
@@ -134,5 +135,33 @@ class SphereTest {
         // TC112: Ray's line is outside, ray is orthogonal to ray start to sphere's center line
         result = sphere.findIntersections(new Ray(new Point (3,0,0), new Vector(0,1,0)));
         assertNull(result, "supply intersection points when it's not supposed to");
+    }
+
+    /** Test method for {@link geometries.Sphere#findGeoIntersections(Ray, double)}. */
+    @Test
+    void findIntersectionsWithMaxDistanceTest() {
+        Sphere sphere = new Sphere(
+                new Point(0,0,0),
+                5
+        );
+        Ray ray = new Ray(
+                new Point(10,0,0),
+                new Vector(-1,0,0)
+        );
+        // TC01: ray intersects the sphere (1 point)
+        List<Intersectable.GeoPoint> result =
+                sphere.findGeoIntersections(ray, 6);
+        assertEquals(1, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC02: ray intersects the sphere (2 point)
+        result = sphere.findGeoIntersections(ray, 30);
+        assertEquals(2, result.size(),
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
+
+        // TC03: ray does not intersect the sphere (0 points)
+        result = sphere.findGeoIntersections(ray, 2);
+        assertNull(result,
+                "findGeoIntersection(Ray, MaxDistance) wrong result");
     }
 }
