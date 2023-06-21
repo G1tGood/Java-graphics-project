@@ -10,7 +10,8 @@ import renderer.Camera;
 /**
  * Testing Camera Class
  * 
- * @author Dan
+ * @author Yoav Babayoff
+ * @author Avishai Shachor
  *
  */
 class CameraTest {

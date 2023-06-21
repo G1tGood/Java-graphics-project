@@ -39,6 +39,18 @@ public class Camera {
     /** ray tracer */
     private RayTracerBase rayTracer;
 
+    // improved ray tracing //
+    // anti aliasing:
+    /** amount of rays for anti aliasing */
+    private int amountRaysAntiAliasing;
+    // depth of field:
+    /** amount of rays for depth of field */
+    private int amountRaysDOF;
+    /** distance of focal plane from view plane */
+    private double focusDistance;
+    /** aperture side length */
+    private double apertureSize;
+
     /** getter for height of View Plane
      * @return View Plane height */
     public double getVpHeight() {
