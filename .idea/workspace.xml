@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished targil 7">
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="modification">
+      <change afterPath="$PROJECT_DIR$/src/renderer/Blackboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/IntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/IntegrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/CylinderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/CylinderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/GeometriesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/GeometriesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PlaneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/PlaneTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/PolygonTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/PolygonTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/SphereTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/SphereTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/TriangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/geometriesTests/TubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/geometriesTests/TubeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/lightingTests/LightsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/lightingTests/LightsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/PointTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitivesTests/PointTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/RayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitivesTests/RayTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/primitivesTests/VectorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/primitivesTests/VectorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/CameraTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ImageWriterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ImageWriterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ReflectionRefractionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ReflectionRefractionTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/RenderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/RenderTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/unittests/rendererTest/ShadowTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ShadowTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
     </list>
-    <list id="ad16a710-264d-4efd-a2b2-816aa9c6e655" name="Changes by Avishai" comment="Changes by Avishai" />
+    <list id="0401be74-a54f-4836-a925-4d64bfa8aa22" name="Changes by Avishai" comment="">
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/rendererTest/CameraTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/CameraTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +50,29 @@
         <option name="url" value="https://github.com/G1tGood/ISE5783_5796_8560.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/renderer/Camera.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="7" end1="7" start2="8" end2="9" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="9" end1="9" start2="11" end2="12" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="24" end1="25" start2="27" end2="29" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="26" end1="27" start2="30" end2="31" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="28" end1="29" start2="32" end2="33" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="30" end1="31" start2="34" end2="35" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="32" end1="33" start2="36" end2="37" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="34" end1="35" start2="38" end2="39" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="36" end1="36" start2="40" end2="52" changelist="0401be74-a54f-4836-a925-4d64bfa8aa22" />
+        <range start1="69" end1="69" start2="85" end2="117" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="119" end1="124" start2="167" end2="168" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="126" end1="126" start2="170" end2="182" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="134" end1="138" start2="190" end2="204" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="170" end1="171" start2="236" end2="259" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="172" end1="174" start2="260" end2="267" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="176" end1="177" start2="269" end2="320" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -121,7 +134,20 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ISE5783_5796_8560">
+  <component name="RunManager" selected="JUnit.ImprovementsTests">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Main" />
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <option name="PACKAGE_NAME" value="" />
@@ -130,46 +156,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PolygonTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ImprovementsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
+          <option name="PATTERN" value="rendererTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.PolygonTests" />
+      <option name="PACKAGE_NAME" value="rendererTest" />
+      <option name="MAIN_CLASS_NAME" value="rendererTest.ImprovementsTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SphereTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShadowTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
+          <option name="PATTERN" value="rendererTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.SphereTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TriangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unittests.geometriesTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="unittests.geometriesTests" />
-      <option name="MAIN_CLASS_NAME" value="unittests.geometriesTests.TriangleTest" />
+      <option name="PACKAGE_NAME" value="rendererTest" />
+      <option name="MAIN_CLASS_NAME" value="rendererTest.ShadowTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -191,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ImprovementsTests" />
         <item itemvalue="JUnit.All in ISE5783_5796_8560" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.ShadowTests" />
         <item itemvalue="JUnit.unittests in ISE5783_5796_8560" />
-        <item itemvalue="JUnit.SphereTest" />
-        <item itemvalue="JUnit.PolygonTests" />
-        <item itemvalue="JUnit.TriangleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +243,12 @@
       <workItem from="1684787536086" duration="48000" />
       <workItem from="1685615443773" duration="21520000" />
       <workItem from="1685700434685" duration="6755000" />
-      <workItem from="1685707486752" duration="579000" />
+      <workItem from="1685707486752" duration="1034000" />
+      <workItem from="1686595468127" duration="4000" />
+      <workItem from="1686652861815" duration="3947000" />
+      <workItem from="1687261523096" duration="2000" />
+      <workItem from="1687338510479" duration="36334000" />
+      <workItem from="1687386665896" duration="2941000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -465,7 +481,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1685707222798</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL‎-00034" summary="modification">
+      <created>1685708402240</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL‎-00034" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1685708402240</updated>
+    </task>
+    <task id="LOCAL‎-00035" summary="modification">
+      <created>1685708422751</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL‎-00035" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1685708422751</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +547,8 @@
     <MESSAGE value="PR07.1" />
     <MESSAGE value="PR07.2" />
     <MESSAGE value="finished targil 7" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished targil 7" />
+    <MESSAGE value="modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

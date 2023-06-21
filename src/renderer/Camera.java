@@ -1,12 +1,15 @@
 package renderer;
 
+import geometries.Plane;
 import primitives.Color;
 import primitives.Point;
 import primitives.Ray;
 import primitives.Vector;
 
+import java.util.LinkedList;
 import java.util.MissingResourceException;
 
+import static java.lang.Math.min;
 import static primitives.Util.*;
 
 /** This class represents camera of scene
@@ -22,17 +25,18 @@ public class Camera {
     double vpDistance;
 
     // ------[PRIVATE FIELDS]------- //
-    // location of the camera
+    // general properties //
+    /** location of the camera */
     private Point location;
-    // up vector of camera
+    /** up vector of camera */
     private Vector vUp;
-    // right vector of camera
+    /** right vector of camera */
     private Vector vRight;
-    // forward vector of camera
+    /** forward vector of camera */
     private Vector vTo;
-    // image writer
+    /** image writer */
     private ImageWriter imageWriter;
-    // ray tracer
+    /** ray tracer */
     private RayTracerBase rayTracer;
 
     /** getter for height of View Plane
@@ -65,6 +69,38 @@ public class Camera {
         this.vTo = vTo.normalize();
         if (this.vUp.dotProduct(this.vTo) == 0) this.vRight = this.vTo.crossProduct(this.vUp);
         else throw new IllegalArgumentException("up vector and forward vector must be orthogonal");
+    }
+
+    /** setter for anti aliasing
+     * @param amountRaysAntiAliasing amount of rays per pixel
+     * @throws IllegalArgumentException if amountRaysAntiAliasing < 0
+     * @return Camera
+     */
+    public Camera setAntiAliasing(int amountRaysAntiAliasing) {
+        if (amountRaysAntiAliasing < 0) throw new IllegalArgumentException("amount of rays for anti aliasing cannot be less than 0");
+        if (amountRaysAntiAliasing == 1) amountRaysAntiAliasing = 0;
+        this.amountRaysAntiAliasing = amountRaysAntiAliasing;
+        return this;
+    }
+
+    /**
+     * setter for DOF improvment
+     * @param amountRaysDOF amounts of rays of the DOF
+     * @param focusDistance the distance between the focal point and the intersection point
+     * @param apertureSize size of aperture side
+     * @throws IllegalArgumentException if amountRaysDOF <= 0
+     * @throws IllegalArgumentException if focusDistance <= 0
+     * @throws IllegalArgumentException if apertureSize <= 0
+     * @return Camera
+     */
+    public Camera setDOF(int amountRaysDOF,double focusDistance,double apertureSize) {
+        if (amountRaysDOF < 1) throw new IllegalArgumentException("amount of rays for DOF amount of rays for anti aliasing cannot be less than 1");
+        if (focusDistance <= 0) throw new IllegalArgumentException("focal plane distance from view plane cannot be less than or equals to 0");
+        if (apertureSize <= 0) throw new IllegalArgumentException("aperture size cannot be less than or equals to 0");
+        this.amountRaysDOF = amountRaysDOF;
+        this.focusDistance = focusDistance;
+        this.apertureSize = apertureSize;
+        return this;
     }
 
     /** setter for image writer
@@ -117,13 +153,21 @@ public class Camera {
      * @return ray from camera through center of given pixel on view plane
      */
     public Ray constructRay(int nX, int nY, int j, int i){
-        Point pIJ = this.location.add(this.vTo.scale(this.vpDistance));
-        double yI = ((double) (nY-1)/2-i)*this.vpHeight/nY;
-        double xJ = (j-((double) (nX-1)/2))*this.vpWidth/nX;
-        if (!isZero(xJ)) pIJ = pIJ.add(this.vRight.scale(xJ));
-        if (!isZero(yI)) pIJ = pIJ.add(this.vUp.scale(yI));
+        Point pIJ = getPij(nX, nY, j, i);
         Vector vIJ = pIJ.subtract(this.location);
         return new Ray(this.location,vIJ);
+    }
+
+    /** constructs a beam of rays from camera through multiple points in a given pixel on view plane
+     * @param nX amount of pixels in a row (amount of columns in view plane)
+     * @param nY amount of pixels in a column (amount of rows in view plane)
+     * @param j column of pixel
+     * @param i row of pixel
+     * @return beam of rays from camera through center of given pixel on view plane
+     */
+    public LinkedList<Ray> constructBeam(int nX, int nY, int j, int i){
+        Blackboard ta = new Blackboard(getPij(nX,nY,j,i),this.vUp,this.vRight, min(this.vpWidth/nX,this.vpHeight/nY), amountRaysAntiAliasing);
+        return Ray.generateBeam(this.location,ta);
     }
 
     /** renders image
@@ -132,10 +176,20 @@ public class Camera {
     public Camera renderImage() {
         if (this.vUp == null || this.vTo == null || this.vRight == null || this.vpDistance == 0.0 || this.location == null || this.vpHeight == 0.0 || this.vpWidth == 0.0 || this.imageWriter == null || this.rayTracer == null)
             throw new MissingResourceException("one or more of the fields of Camera was not initialized", "", "");
-        int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
-        for (int i = 0; i < nY; ++i){
-            for (int j = 0; j < nX; ++j) {
-                imageWriter.writePixel(j, i, castRay(this.imageWriter.getNx(),this.imageWriter.getNy(),j,i));
+        if (amountRaysAntiAliasing != 0) {
+            int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
+            for (int i = 0; i < nY; ++i) {
+                for (int j = 0; j < nX; ++j) {
+                    imageWriter.writePixel(j, i, castBeam(this.imageWriter.getNx(), this.imageWriter.getNy(), j, i));
+                }
+            }
+        }
+        else {
+            int nX = this.imageWriter.getNx(), nY = this.imageWriter.getNy();
+            for (int i = 0; i < nY; ++i) {
+                for (int j = 0; j < nX; ++j) {
+                    imageWriter.writePixel(j, i, castRay(this.imageWriter.getNx(), this.imageWriter.getNy(), j, i));
+                }
             }
         }
         return this;
@@ -168,11 +222,88 @@ public class Camera {
         this.imageWriter.writeToImage();
     }
 
-    //casts a ray through a pixel and returns its color
-    private Color castRay(int nX, int nY, int j, int i){
-        Ray ray = this.constructRay(nX,nY,j,i);
-        return rayTracer.traceRay(ray);
+    /** returns point in the middle of pixel i,j
+     * @param nX amount of pixels in a row (amount of columns in view plane)
+     * @param nY amount of pixels in a column (amount of rows in view plane)
+     * @param j column of pixel
+     * @param i row of pixel
+     * @return point in the middle of pixel i,j
+     */
+    private Point getPij(int nX, int nY, int j, int i) {
+        Point pIJ = this.location.add(this.vTo.scale(this.vpDistance));
+        double yI = ((double) (nY-1)/2-i)*this.vpHeight/nY;
+        double xJ = (j-((double) (nX-1)/2))*this.vpWidth/nX;
+        if (!isZero(xJ)) pIJ = pIJ.add(this.vRight.scale(xJ));
+        if (!isZero(yI)) pIJ = pIJ.add(this.vUp.scale(yI));
+        return pIJ;
     }
 
-    // TODO: implement camera rotation (bonus)
+    /** casts a ray through a pixel and returns its color
+     * @param nX amount of pixels in a row (amount of columns in view plane)
+     * @param nY amount of pixels in a column (amount of rows in view plane)
+     * @param j column of pixel
+     * @param i row of pixel
+     * @return color of traced ray
+     */
+    private Color castRay(int nX, int nY, int j, int i){
+        if (this.focusDistance != 0) { // DOF on
+            return calcDOF(getPij(nX, nY, j, i));
+        }
+        else { // DOF off
+            Ray ray = this.constructRay(nX, nY, j, i);
+            return rayTracer.traceRay(ray);
+        }
+    }
+
+    /** casts a beam of rays through a pixel and returns their average color
+     * @param nX amount of pixels in a row (amount of columns in view plane)
+     * @param nY amount of pixels in a column (amount of rows in view plane)
+     * @param j column of pixel
+     * @param i row of pixel
+     * @return color of average color of traced rays
+     */
+    private Color castBeam(int nX, int nY, int j, int i){
+        if (focusDistance != 0) { // DOF active
+            Blackboard ta = new Blackboard(getPij(nX,nY,j,i),this.vUp,this.vRight, min(this.vpWidth/nX,this.vpHeight/nY), amountRaysAntiAliasing);
+            Color color = new Color(java.awt.Color.BLACK);
+            for (Point point:ta.getPoints()) {
+                color = color.add(calcDOF(point));
+            }
+            return color.reduce(amountRaysAntiAliasing);
+        }
+        else {  // DOF not active
+            LinkedList<Ray> beam = this.constructBeam(nX,nY,j,i);
+            return averageBeamColor(beam);
+        }
+    }
+
+    /** calculates the average color of all rays in beam
+     * @param beam beam of rays
+     * @return  the average color of all rays in beam */
+    private Color averageBeamColor(LinkedList<Ray> beam) {
+        Color color = Color.BLACK;
+        for (Ray ray: beam)
+            color = color.add(rayTracer.traceRay(ray));
+        return color.reduce(beam.size());
+    }
+
+    /** calculates color of a point in view plane with DOF improvement
+     * @param point point at view plane
+     * @return color of point with DOF improvement*/
+    private Color calcDOF(Point point) {
+        Blackboard ta = new Blackboard(point,this.vUp,this.vRight, apertureSize, amountRaysDOF);
+        return averageBeamColor(Ray.generateBeam(getFocalPoint(point),ta, true));
+    }
+
+    /** getter of focal point on focal plane for a certain point in view plane
+     * @param point point at view plane
+     * @return focal point on focal plane for point
+     */
+    private Point getFocalPoint(Point point) {
+        Vector dir = point.subtract(this.location).normalize();
+        double distance = this.focusDistance/(dir.dotProduct(this.vTo));
+        return point.add(dir.scale(distance));
+    }
+
+    // todo: implement camera rotation (bonus)
 }

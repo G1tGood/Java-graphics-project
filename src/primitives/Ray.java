@@ -1,11 +1,13 @@
 package primitives;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import static primitives.Util.alignZero;
 import static primitives.Util.isZero;
 
 import geometries.Intersectable.GeoPoint;
+import renderer.Blackboard;
 
 /**
  * Class Ray is the basic class representing a ray of Euclidean geometry in Cartesian
@@ -20,6 +22,40 @@ public class Ray {
     final Point p0;
     /** direction vector of the ray */
     final Vector dir;
+
+    /** generates a beam of rays from an origin point to points on a target area
+     * @param originPoint origin point for rays
+     * @param ta target area
+     * @return returns a beam of rays from an origin point to points on a target area
+     */
+    public static LinkedList<Ray> generateBeam(Point originPoint, Blackboard ta) {
+        LinkedList<Ray> rays = new LinkedList<>();
+        for (Point targetPoint:ta.getPoints()){
+            rays.add(new Ray(originPoint ,targetPoint.subtract(originPoint)));
+        }
+        return rays;
+    }
+
+    /** generates a beam of rays from an origin point to points on a target area
+     * @param originPoint origin point for rays
+     * @param ta target area
+     * @param isReversed are the points from the target area to the origin point or the other way around
+     * @return returns a beam of rays from an origin point to points on a target area
+     */
+    public static LinkedList<Ray> generateBeam(Point originPoint, Blackboard ta, boolean isReversed) {
+        LinkedList<Ray> rays = new LinkedList<>();
+        if (isReversed) {
+            for (Point targetPoint : ta.getPoints()) {
+                rays.add(new Ray(targetPoint, originPoint.subtract(targetPoint)));
+            }
+        }
+        else {
+            for (Point targetPoint : ta.getPoints()) {
+                rays.add(new Ray(originPoint, targetPoint.subtract(originPoint)));
+            }
+        }
+        return rays;
+    }
 
     /** getter for starting point of the ray p0
      * @return p0 */
