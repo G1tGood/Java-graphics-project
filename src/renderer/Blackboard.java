@@ -4,7 +4,6 @@ import primitives.Point;
 import primitives.Vector;
 
 import java.util.Random;
-import java.util.random.*;
 import java.util.LinkedList;
 
 /** a helper class representing a square target area and points on it
@@ -54,24 +53,24 @@ public class Blackboard {
         int leftovers =  amountOfPoints - n*n - 1;
         Point topLeftPoint;
         if (n == 1) {
-            topLeftPoint = movePoint(this.location,interval);
+            topLeftPoint = randomMovePoint(this.location,interval);
         }
         else {
             topLeftPoint = this.location.add(this.vX.scale((float) (1 - n) / 2 * interval)
                     .add(this.vY.scale((float) (n - 1) / 2 * interval)));
         }
-        this.points.add(movePoint(topLeftPoint,interval));
+        this.points.add(randomMovePoint(topLeftPoint,interval));
         for (int i = 1; i < n; ++i) {
-            this.points.add(movePoint(topLeftPoint.add(this.vY.scale(-i*interval)), interval));
+            this.points.add(randomMovePoint(topLeftPoint.add(this.vY.scale(-i*interval)), interval));
         }
         for (int i = 1; i < n; ++i) {
-            this.points.add(movePoint(topLeftPoint.add(this.vX.scale(i*interval)), interval));
+            this.points.add(randomMovePoint(topLeftPoint.add(this.vX.scale(i*interval)), interval));
         }
         for (int i = 0; i < n*n-2*n+1; ++i){
-            this.points.add(movePoint(topLeftPoint.add(this.vY.scale((-((int)(i/(n-1))+1))*interval).add(this.vX.scale((i%(n-1)+1)*interval))), interval));
+            this.points.add(randomMovePoint(topLeftPoint.add(this.vY.scale((-((int)(i/(n-1))+1))*interval).add(this.vX.scale((i%(n-1)+1)*interval))), interval));
         }
         for (int i = 0; i < leftovers; ++i) {
-            this.points.add(movePoint(this.location,sideSize/2));
+            this.points.add(randomMovePoint(this.location,sideSize/2));
         }
     }
 
@@ -80,12 +79,14 @@ public class Blackboard {
      * @param interval interval between points if not random
      * @return moved point
      */
-    private Point movePoint(Point point, double interval){
-        Random random = new Random();
-        double n1 = random.nextDouble() * interval - interval / 2;
-        double n2 = random.nextDouble() * interval - interval / 2;
-        if (n1 != 0) point = point.add(this.vX.scale(n1));
-        if (n2 != 0) point = point.add(this.vY.scale(n2));
+    private Point randomMovePoint(Point point, double interval){
+        do {
+            Random random = new Random();
+            double n1 = random.nextDouble() * interval - interval / 2;
+            double n2 = random.nextDouble() * interval - interval / 2;
+            if (n1 != 0) point = point.add(this.vX.scale(n1));
+            if (n2 != 0) point = point.add(this.vY.scale(n2));
+        } while (point.equals(this.location));
         return point;
     }
 

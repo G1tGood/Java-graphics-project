@@ -80,13 +80,14 @@ public class ImprovementsTests {
         );
 
         camera.setAntiAliasing(10);
-        ImageWriter imageWriter = new ImageWriter("DOF off AA on test", 600, 600);
+        /*ImageWriter imageWriter = new ImageWriter("MT off AA on test", 600, 600);
         camera.setImageWriter(imageWriter)
                 .setRayTracer(new RayTracerBasic(scene))
                 .renderImage()
-                .writeToImage();
-        camera.setDOF(70,300,20);
-        imageWriter = new ImageWriter("DOF on AA on test", 600, 600);
+                .writeToImage();*/
+        camera.setDOF(30,300,20);
+        camera.setMultiThreading(3,100);
+        ImageWriter imageWriter = new ImageWriter("MT on AA on test", 600, 600);
         camera.setImageWriter(imageWriter)
                 .setRayTracer(new RayTracerBasic(scene))
                 .renderImage()
