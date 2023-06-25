@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished MT implementation">
-      <change afterPath="$PROJECT_DIR$/src/renderer/PixelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unittests/special/TeapotTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Ray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/Blackboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Blackboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" afterDir="false" />
     </list>
-    <list id="0401be74-a54f-4836-a925-4d64bfa8aa22" name="Changes by Avishai" comment="Changes by Avishai" />
+    <list id="2347fde2-b0d8-4fbd-8de0-354bc63805fd" name="Changes by Avishai" comment="">
+      <change beforePath="$PROJECT_DIR$/src/renderer/Blackboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Blackboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +52,45 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/renderer/Blackboard.java">
+      <ranges>
+        <range start1="8" end1="9" start2="8" end2="13" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="10" end1="11" start2="14" end2="15" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="13" end1="18" start2="17" end2="24" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="19" end1="20" start2="25" end2="28" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="21" end1="22" start2="29" end2="32" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="23" end1="24" start2="33" end2="36" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="25" end1="25" start2="37" end2="41" changelist="2347fde2-b0d8-4fbd-8de0-354bc63805fd" />
+        <range start1="26" end1="31" start2="42" end2="49" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="32" end1="32" start2="50" end2="51" changelist="2347fde2-b0d8-4fbd-8de0-354bc63805fd" />
+        <range start1="34" end1="34" start2="53" end2="55" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="38" end1="39" start2="59" end2="61" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="41" end1="44" start2="63" end2="81" changelist="2347fde2-b0d8-4fbd-8de0-354bc63805fd" />
+        <range start1="45" end1="73" start2="82" end2="88" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="74" end1="74" start2="89" end2="90" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="76" end1="77" start2="92" end2="95" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="78" end1="79" start2="96" end2="96" changelist="2347fde2-b0d8-4fbd-8de0-354bc63805fd" />
+        <range start1="81" end1="89" start2="98" end2="104" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="92" end1="94" start2="107" end2="109" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="95" end1="97" start2="110" end2="112" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/renderer/Camera.java">
+      <ranges>
+        <range start1="9" end1="10" start2="9" end2="11" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="11" end1="12" start2="12" end2="12" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="72" end1="72" start2="72" end2="74" changelist="2347fde2-b0d8-4fbd-8de0-354bc63805fd" />
+        <range start1="112" end1="113" start2="114" end2="115" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="122" end1="122" start2="124" end2="132" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="210" end1="222" start2="220" end2="220" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="317" end1="318" start2="315" end2="317" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="323" end1="323" start2="322" end2="323" changelist="2347fde2-b0d8-4fbd-8de0-354bc63805fd" />
+        <range start1="336" end1="337" start2="336" end2="363" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="338" end1="338" start2="364" end2="427" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -78,6 +120,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
+    "introduce.parameter.lambda": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-19",
     "last_directory_selection": "C:/Users/yoavb/IdeaProjects/ISE5783_5796_8560/unittests",
     "last_opened_file_path": "D:/Downloads/Polygon.java",
@@ -110,7 +153,7 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TeapotTest">
+  <component name="RunManager" selected="JUnit.ImprovementsTests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.Main" />
       <module name="ISE5783_5796_8560" />
@@ -191,8 +234,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TeapotTest" />
         <item itemvalue="JUnit.ImprovementsTests" />
+        <item itemvalue="JUnit.TeapotTest" />
         <item itemvalue="JUnit.All in ISE5783_5796_8560" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ShadowTests" />
@@ -239,7 +282,8 @@
       <workItem from="1687338510479" duration="36334000" />
       <workItem from="1687386665896" duration="3082000" />
       <workItem from="1687425416263" duration="6382000" />
-      <workItem from="1687511231376" duration="19383000" />
+      <workItem from="1687511231376" duration="21202000" />
+      <workItem from="1687635986868" duration="17123000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -500,7 +544,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1687389756564</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL‎-00038" summary="finished MT implementation">
+      <created>1687534309617</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL‎-00038" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1687534309617</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

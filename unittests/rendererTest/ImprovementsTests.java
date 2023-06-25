@@ -79,14 +79,15 @@ public class ImprovementsTests {
                         .setKq(2E-7)
         );
 
-        camera.setAntiAliasing(10);
+        camera.setAntiAliasing(9);
         /*ImageWriter imageWriter = new ImageWriter("MT off AA on test", 600, 600);
         camera.setImageWriter(imageWriter)
                 .setRayTracer(new RayTracerBasic(scene))
                 .renderImage()
                 .writeToImage();*/
-        camera.setDOF(30,300,20);
-        camera.setMultiThreading(3,100);
+        camera.setDOF(9,300,20)
+                .setMultiThreading(3,100)
+                .setASS();
         ImageWriter imageWriter = new ImageWriter("MT on AA on test", 600, 600);
         camera.setImageWriter(imageWriter)
                 .setRayTracer(new RayTracerBasic(scene))

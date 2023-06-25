@@ -29,11 +29,7 @@ public class Ray {
      * @return returns a beam of rays from an origin point to points on a target area
      */
     public static LinkedList<Ray> generateBeam(Point originPoint, Blackboard ta) {
-        LinkedList<Ray> rays = new LinkedList<>();
-        for (Point targetPoint:ta.getPoints()){
-            rays.add(new Ray(originPoint ,targetPoint.subtract(originPoint)));
-        }
-        return rays;
+        return generateBeam(originPoint,ta,false);
     }
 
     /** generates a beam of rays from an origin point to points on a target area
@@ -44,14 +40,15 @@ public class Ray {
      */
     public static LinkedList<Ray> generateBeam(Point originPoint, Blackboard ta, boolean isReversed) {
         LinkedList<Ray> rays = new LinkedList<>();
+        LinkedList<Point> points = ta.generatePoints();
         if (isReversed) {
-            for (Point targetPoint : ta.getPoints()) {
+            for (Point targetPoint : points) {
                 rays.add(new Ray(targetPoint, originPoint.subtract(targetPoint)));
             }
         }
         else {
-            for (Point targetPoint : ta.getPoints()) {
-                rays.add(new Ray(originPoint, targetPoint.subtract(originPoint)));
+            for (Point targetPoint:points){
+                rays.add(new Ray(originPoint ,targetPoint.subtract(originPoint)));
             }
         }
         return rays;

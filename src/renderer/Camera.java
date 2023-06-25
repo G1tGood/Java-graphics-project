@@ -7,9 +7,9 @@ import primitives.Vector;
 
 import java.util.LinkedList;
 import java.util.MissingResourceException;
-import java.util.Objects;
+import java.util.Optional;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
-import java.util.stream.*;
 
 import static java.lang.Math.min;
 import static primitives.Util.*;
@@ -110,13 +110,21 @@ public class Camera {
     /** setter for multithreading improvement
      * @param threadsCount number of threads that we want to use for the program
      * @param printInterval interval between prints
-     * @return
+     * @return the Camera object itself
      */
     public Camera setMultiThreading(int threadsCount, long printInterval) {
         if (threadsCount < 0) throw new IllegalArgumentException("thread amount cannot be less than 0 threads");
         if (printInterval <= 0) throw new IllegalArgumentException("print interval cannot be less than or equal to 0");
         this.threadsCount = threadsCount;
         this.printInterval = printInterval;
+        return this;
+    }
+
+    /** setter for adaptive super sampling
+     * @return the Camera object itself
+     */
+    public Camera setASS() {
+        this.adaptive = true;
         return this;
     }
 
@@ -207,18 +215,6 @@ public class Camera {
         Point pIJ = getPij(nX, nY, j, i);
         Vector vIJ = pIJ.subtract(this.location);
         return new Ray(this.location,vIJ);
-    }
-
-    /** constructs a beam of rays from camera through multiple points in a given pixel on view plane
-     * @param nX amount of pixels in a row (amount of columns in view plane)
-     * @param nY amount of pixels in a column (amount of rows in view plane)
-     * @param j column of pixel
-     * @param i row of pixel
-     * @return beam of rays from camera through center of given pixel on view plane
-     */
-    public LinkedList<Ray> constructBeam(int nX, int nY, int j, int i){
-        Blackboard ta = new Blackboard(getPij(nX,nY,j,i),this.vUp,this.vRight, min(this.vpWidth/nX,this.vpHeight/nY), amountRaysAntiAliasing);
-        return Ray.generateBeam(this.location,ta);
     }
 
     /** renders image
@@ -315,7 +311,8 @@ public class Camera {
      * @param i row of pixel
      */
     private void castBeam(int nX, int nY, int j, int i){
-        imageWriter.writePixel(j,i,averageBeamColor(constructBeam(nX,nY,j,i), rayColorFunc));
+        Blackboard ta = new Blackboard(getPij(nX,nY,j,i),this.vUp,this.vRight, min(this.vpWidth/nX,this.vpHeight/nY), amountRaysAntiAliasing);
+        imageWriter.writePixel(j,i, gridColor(this.location,ta,rayColorFunc,false));
         pixelManager.pixelDone();
     }
 
@@ -334,7 +331,96 @@ public class Camera {
      * @return color of point with DOF improvement*/
     private Color calcDOF(Ray ray) {
         Blackboard ta = new Blackboard(getPointHorizontalDistance(ray,this.vpDistance), this.vUp, this.vRight, apertureSize, amountRaysDOF);
-        return averageBeamColor(Ray.generateBeam(getPointHorizontalDistance(ray,this.focusDistance),ta, true), ray1 -> rayTracer.traceRay(ray1));
+        return gridColor(getPointHorizontalDistance(ray,this.focusDistance),ta,ray1 -> rayTracer.traceRay(ray1),true);
+      }
+
+    /**
+     * calculates the color of our grid
+     * @param point point to which/from which rays will be cast
+     * @param bb target area to which/from which we cast rays
+     * @param rayCalc function to calculate ray color
+     * @param reverse weather the rays are cast from point to target area (reverse = false) or the other way around
+     * @return color of grid
+     */
+    private Color gridColor(Point point,Blackboard bb, Function<Ray,Color> rayCalc, boolean reverse){
+        return adaptive ?
+                adaptiveCalcHelp(point, bb, rayCalc,reverse) :
+                averageBeamColor(Ray.generateBeam(point,bb, reverse), rayCalc);
+    }
+
+    /**
+     *  helper function that calls the recursive adaptiveCalc function
+     * @param point point to which/from which rays will be cast
+     * @param bb target area to which/from which we cast rays
+     * @param calcRay function to calculate ray color
+     * @param reverse weather the rays are cast from point to target area (reverse = false) or the other way around
+     * @return average color of grid with ASS
+     */
+    private Color adaptiveCalcHelp(Point point, Blackboard bb, Function<Ray,Color> calcRay, boolean reverse) {
+        return adaptiveCalc(point,0,0,bb.getN()-1,bb.getN()-1,bb, new Color[bb.getN()][bb.getN()],calcRay,reverse);
+    }
+
+    /** recursive function for ASS
+     * @param point point to which/from which rays will be cast
+     * @param minX minimum x-axis coordinate on sub-grid
+     * @param minY minimum y-axis coordinate on sub-grid
+     * @param maxX maximum x-axis coordinate on sub-grid
+     * @param maxY maximum y-axis coordinate on sub-grid
+     * @param bb target area to which/from which we cast rays
+     * @param colors colors for every coordinate on the target area, so we don't calculate a color twice
+     * @param reverse weather the rays are cast from point to target area (reverse = false) or the other way around
+     * @param function function to calculate ray color
+     * @return average color of sub-grid with ASS
+     */
+    private Color adaptiveCalc(Point point, int minX, int minY, int maxX, int maxY, Blackboard bb, Color[][] colors, Function<Ray, Color> function, boolean reverse){
+        if (minX == maxX) {
+            if (colors[minX][minX] == null)
+                adaptiveAddColor(point,minX,minX,bb,colors,function,reverse);
+            return colors[minX][minX];
+        }
+        if (colors[minX][minY] == null) {
+            adaptiveAddColor(point,minX,minY,bb,colors,function,reverse);
+        }
+        if (colors[minX][maxY] == null)  {
+            adaptiveAddColor(point,minX,maxY,bb,colors,function,reverse);
+        }
+        if(colors[maxX][maxY] == null){
+            adaptiveAddColor(point,maxX,maxY,bb,colors,function,reverse);
+        }
+        if(colors[maxX][minY] == null){
+            adaptiveAddColor(point,maxX,minY,bb,colors,function,reverse);
+        }
+        if (colors[minX][minY].equals(colors[minX][maxY]) && colors[minX][minY].equals(colors[maxX][maxY]) && colors[minX][minY].equals(colors[maxX][minY])){
+            return colors[minX][minY];
+        }
+        else{
+            return (adaptiveCalc(point,(minX+maxX)/2, (minY+maxY)/2,maxX,maxY, bb, colors, function,reverse) // top right
+                    .add(adaptiveCalc(point,minX, (minY+maxY)/2,(minX+maxX)/2,maxY, bb, colors, function,reverse)) // top left
+                    .add(adaptiveCalc(point,minX, minY,(minX+maxX)/2,(minY+maxY)/2, bb, colors, function,reverse)) // bottom left
+                    .add(adaptiveCalc(point,(minX+maxX)/2,minY,maxX,(minY+maxY)/2,bb,colors, function,reverse))) // bottom right
+                    .reduce(4);
+        }
+    }
+
+    /**
+     * a helper function to adaptiveCalc that calculate color of coordinate (j,i) on grid
+     * @param point point to which/from which rays will be cast
+     * @param j x-axis coordinate
+     * @param i y-axis coordinate
+     * @param bb target area to which/from which we cast rays
+     * @param colors colors for every coordinate on the target area, so we don't calculate a color twice
+     * @param function function to calculate ray color
+     * @param reverse weather the rays are cast from point to target area (reverse = false) or the other way around
+     */
+    private void adaptiveAddColor(Point point, int j, int i, Blackboard bb, Color[][] colors, Function<Ray, Color> function, boolean reverse) {
+        int halfN = (bb.getN()-1)/2;
+        Point p = bb.generatePoint(j-halfN, i-halfN);
+        if (!reverse) {
+            colors[j][i] = function.apply(new Ray(point, p.subtract(point)));
+        }
+        else {
+            colors[j][i] = function.apply(new Ray(p, point.subtract(p)));
+        }
     }
 
     /** calculates point on a certain horizontal distance from ray origin point (horizontal - on Vto axis)
