@@ -35,6 +35,10 @@ public class Blackboard {
      * target area middle point location
      */
     private Point location;
+    /**
+     * interval between points
+     */
+    private double interval;
 
     /**
      * ctor for Blackboard
@@ -44,6 +48,7 @@ public class Blackboard {
      * @param vX             x-axis vector
      * @param sideSize       size of side of target area
      * @param amountOfPoints amount of points to generate
+     * @throws IllegalArgumentException if amountOfPoints <=0
      */
     public Blackboard(Point point, Vector vY, Vector vX, double sideSize, int amountOfPoints) {
         if (amountOfPoints <= 0)
@@ -56,9 +61,24 @@ public class Blackboard {
         this.interval = this.sideSize / n;
     }
 
-    /** generates points on target area
-     * @param amountOfPoints amount of points to generate
-     * @throws IllegalArgumentException if amountOfPoints < 1
+    /**
+     * generates a point on location (j,i) on target area
+     * @param j location on x-axis
+     * @param i location on y-axis
+     * @return point in (j,i)
+     */
+    public Point generatePoint(int j, int i) {
+        Point pIJ = this.location;
+        double yI = ((double) (n - 1) / 2 - i) * interval;
+        double xJ = (j - ((double) (n - 1) / 2)) * interval;
+        if (!isZero(xJ)) pIJ = pIJ.add(this.vX.scale(xJ));
+        if (!isZero(yI)) pIJ = pIJ.add(this.vY.scale(yI));
+        return randomMovePoint(pIJ);
+    }
+
+    /**
+     * generates points on target area
+     * @return points on target area
      */
     public LinkedList<Point> generatePoints() {
         LinkedList<Point> points = new LinkedList<>();
@@ -74,7 +94,6 @@ public class Blackboard {
     /**
      * moves point randomly on grid
      * @param point given point
-     * @param interval interval between points if not random
      * @return moved point
      */
     private Point randomMovePoint(Point point) {

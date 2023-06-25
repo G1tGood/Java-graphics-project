@@ -70,6 +70,8 @@ public class Camera {
     private double focusDistance;
     /** aperture side length */
     private double apertureSize;
+    /** is the ASS improvement on*/
+    boolean adaptive;
     /** ray(s) casting function */
     FourConsumer<Integer, Integer, Integer, Integer> rayCastFunc = this::castRay;
     /** function to calculate ray color */
@@ -318,6 +320,7 @@ public class Camera {
 
     /** calculates the average color of all rays in beam
      * @param beam beam of rays
+     * @param func function to calculate ray color
      * @return  the average color of all rays in beam */
     private Color averageBeamColor(LinkedList<Ray> beam, Function<Ray,Color> func) {
         Color color = Color.BLACK;
