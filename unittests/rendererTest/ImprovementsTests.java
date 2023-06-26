@@ -52,7 +52,7 @@ public class ImprovementsTests {
                         new Point(-1000,0,0),
                         500
                 )
-                        .setEmission(new Color(BLUE))
+                        .setEmission(new Color(YELLOW))
                         .setMaterial(new Material()
                                 .setKr(0.2)
                                 .setKs(0.2)
@@ -61,7 +61,7 @@ public class ImprovementsTests {
                         new Point(-100,120,0),
                         50
                 )
-                        .setEmission(new Color(BLUE))
+                        .setEmission(new Color(RED))
                         .setMaterial(new Material()
                                 .setKr(0.2)
                                 .setKs(0.2)
@@ -79,17 +79,19 @@ public class ImprovementsTests {
                         .setKq(2E-7)
         );
 
-        camera.setAntiAliasing(9);
-        /*ImageWriter imageWriter = new ImageWriter("MT off AA on test", 600, 600);
-        camera.setImageWriter(imageWriter)
+        ImageWriter imageWriter = new ImageWriter("test 1", 600, 600);
+        camera.setAntiAliasing(25);
+        camera.setDOF(25,300,20)
+                .setMultiThreading(3,100).setImageWriter(imageWriter)
                 .setRayTracer(new RayTracerBasic(scene))
                 .renderImage()
-                .writeToImage();*/
-        camera.setDOF(9,300,20)
-                .setMultiThreading(3,100)
-                .setASS();
-        ImageWriter imageWriter = new ImageWriter("MT on AA on test", 600, 600);
-        camera.setImageWriter(imageWriter)
+                .writeToImage();
+
+        camera.setASS();
+        imageWriter = new ImageWriter("test 2", 600, 600);
+        camera.setAntiAliasing(25);
+        camera.setDOF(25,300,20)
+                .setMultiThreading(3,100).setImageWriter(imageWriter)
                 .setRayTracer(new RayTracerBasic(scene))
                 .renderImage()
                 .writeToImage();

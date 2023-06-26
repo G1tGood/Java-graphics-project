@@ -16,6 +16,9 @@ public class Color {
    /** Black color = (0,0,0) */
    public static final Color BLACK = new Color();
 
+   /** max difference between two colors to be considered equal */
+   private static final float ACCURACY = 0.5F;
+
    /** Default constructor - to generate Black Color (privately) */
    private Color() { rgb = Double3.ZERO; }
 
@@ -114,9 +117,9 @@ public class Color {
    public boolean equals(Object obj) {
       if (this == obj) return true;
       if (obj instanceof Color other)
-         return abs(rgb.d1 - other.rgb.d1) <= 2
-                 && abs(rgb.d2 - other.rgb.d2) <= 2
-                 && abs(rgb.d3 - other.rgb.d3) <= 2;
+         return abs(rgb.d1 - other.rgb.d1) <= ACCURACY
+                 && abs(rgb.d2 - other.rgb.d2) <= ACCURACY
+                 && abs(rgb.d3 - other.rgb.d3) <= ACCURACY;
       return false;
    }
 

@@ -376,11 +376,7 @@ public class Camera {
      * @return average color of sub-grid with ASS
      */
     private Color adaptiveCalc(Point point, int minX, int minY, int maxX, int maxY, Blackboard bb, Color[][] colors, Function<Ray, Color> function, boolean reverse){
-        if (minX == maxX) {
-            if (colors[minX][minX] == null)
-                adaptiveAddColor(point,minX,minX,bb,colors,function,reverse);
-            return colors[minX][minX];
-        }
+        /*
         if (colors[minX][minY] == null) {
             adaptiveAddColor(point,minX,minY,bb,colors,function,reverse);
         }
@@ -395,6 +391,46 @@ public class Camera {
         }
         if (colors[minX][minY].equals(colors[minX][maxY]) && colors[minX][minY].equals(colors[maxX][maxY]) && colors[minX][minY].equals(colors[maxX][minY])){
             return colors[minX][minY];
+        }
+        else if (minX == maxX - 1) {
+            return colors[minX][minY]
+                    .add(colors[minX][maxY])
+                    .add(colors[maxX][minY])
+                    .add(colors[maxX][maxY]).reduce(4);
+        }
+        else{
+            return (adaptiveCalc(point,(minX+maxX)/2, (minY+maxY)/2,maxX,maxY, bb, colors, function,reverse) // top right
+                    .add(adaptiveCalc(point,minX, (minY+maxY)/2,(minX+maxX)/2,maxY, bb, colors, function,reverse)) // top left
+                    .add(adaptiveCalc(point,minX, minY,(minX+maxX)/2,(minY+maxY)/2, bb, colors, function,reverse)) // bottom left
+                    .add(adaptiveCalc(point,(minX+maxX)/2,minY,maxX,(minY+maxY)/2,bb,colors, function,reverse))) // bottom right
+                    .reduce(4);
+        }
+        */
+        if (colors[minX][minY] == null) {
+            adaptiveAddColor(point,minX,minY,bb,colors,function,reverse);
+        }
+        if (colors[minX][maxY] == null)  {
+            adaptiveAddColor(point,minX,maxY,bb,colors,function,reverse);
+        }
+        if(colors[maxX][maxY] == null){
+            adaptiveAddColor(point,maxX,maxY,bb,colors,function,reverse);
+        }
+        if(colors[maxX][minY] == null){
+            adaptiveAddColor(point,maxX,minY,bb,colors,function,reverse);
+        }
+        if (colors[(minX+maxX)/2][(minY+maxY)/2] == null){
+            adaptiveAddColor(point,(minX+maxX)/2,(minY+maxY)/2,bb,colors,function,reverse);
+        }
+        if (colors[minX][minY].equals(colors[minX][maxY]) && colors[minX][minY].equals(colors[maxX][maxY]) && colors[minX][minY].equals(colors[maxX][minY])){
+            return colors[minX][minY];
+        }
+        else if (minX == maxX - 2) {
+            return colors[minX][minY]
+                    .add(colors[minX][maxY])
+                    .add(colors[maxX][minY])
+                    .add(colors[maxX][maxY])
+                    .add(colors[(minX+maxX)/2][(minY+maxY)/2])
+                    .reduce(5);
         }
         else{
             return (adaptiveCalc(point,(minX+maxX)/2, (minY+maxY)/2,maxX,maxY, bb, colors, function,reverse) // top right

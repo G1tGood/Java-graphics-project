@@ -7,7 +7,7 @@ import primitives.Vector;
 
 /**
  * class Geometry is a class representing a geometrical object
- * of Euclidean geometry in Cartesian 3-Dimensional coordinate system.
+ * in Cartesian 3-Dimensional coordinate system.
  * @author Yoav Babayof and Avishai Shachor
  */
 public abstract class Geometry extends Intersectable {

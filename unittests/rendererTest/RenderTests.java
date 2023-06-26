@@ -5,9 +5,14 @@ import org.junit.jupiter.api.Test;
 import geometries.Sphere;
 import geometries.Triangle;
 import lighting.AmbientLight;
+import org.xml.sax.SAXException;
 import primitives.*;
 import renderer.*;
 import scene.Scene;
+import xml.XMLParser;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 
 import static java.awt.Color.*;
 import static java.awt.Color.WHITE;
@@ -89,10 +94,15 @@ public class RenderTests {
    @Test
    public void basicRenderXml() {
       Scene  scene  = new Scene("XML Test scene");
-      // enter XML file name and parse from XML file into scene object
-      // using the code you added in appropriate packages
-      // ...
-      // NB: unit tests is not the correct place to put XML parsing code
+      try {
+         XMLParser.parseXMLScene("src/xml/basicRenderTestTwoColors.xml",scene);
+      } catch (ParserConfigurationException e) {
+         throw new RuntimeException(e);
+      } catch (IOException e) {
+         throw new RuntimeException(e);
+      } catch (SAXException e) {
+         throw new RuntimeException(e);
+      }
       Camera camera = new Camera(new Point(0,0,0), new Vector(0, 0, -1), new Vector(0, 1, 0))     //
          .setVPDistance(100)                                                                //
          .setVPSize(500, 500).setImageWriter(new ImageWriter("xml render test", 1000, 1000))
