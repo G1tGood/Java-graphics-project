@@ -61,6 +61,7 @@ public class Camera {
     private double apertureSize;
     /** is the ASS improvement on*/
     boolean adaptive;
+
     /** ray(s) casting function */
     FourConsumer<Integer, Integer, Integer, Integer> rayCastFunc = this::castRay;
     /** function to calculate ray color */
@@ -431,3 +432,72 @@ public class Camera {
 
     // todo: implement camera rotation (bonus)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
