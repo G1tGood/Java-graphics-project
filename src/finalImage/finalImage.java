@@ -67,9 +67,9 @@ public final class finalImage {
                         new Vector(3,1,10))
                         .setVPSize(2.5,2)
                         .setVPDistance(2.8)
-                        .setAntiAliasing(9*9)
+                        .setAntiAliasing(17*17)
                         .setASS()
-                        .setDOF(9*9,79.6,2)
+                        .setDOF(17*17,79.6,2)
                         .setMultiThreading(3,1);
 
         camera.setImageWriter(imageWriter)

@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="almost finished implementing XML and final image">
-      <change afterPath="$PROJECT_DIR$/src/primitives/FourConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/xml/finalimage.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unittests/improvementTests/AccelerationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unittests/improvementTests/PictureTests.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="finished the mini project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/finalImage/finalImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/finalImage/finalImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Blackboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Blackboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderer/PixelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/PixelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/xml/XMLParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xml/XMLParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/rendererTest/RenderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/RenderTests.java" afterDir="false" />
     </list>
-    <list id="7441d84a-adda-4ab7-b4a7-49091f1d2baa" name="Changes by Avishai" comment="">
-      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-    </list>
+    <list id="7441d84a-adda-4ab7-b4a7-49091f1d2baa" name="Changes by Avishai" comment="Changes by Avishai" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,29 +45,6 @@
         <option name="url" value="https://github.com/G1tGood/ISE5783_5796_8560.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/renderer/Camera.java">
-      <ranges>
-        <range start1="2" end1="6" start2="2" end2="3" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="9" end1="11" start2="6" end2="6" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="20" end1="26" start2="15" end2="15" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="74" end1="74" start2="63" end2="64" changelist="7441d84a-adda-4ab7-b4a7-49091f1d2baa" />
-        <range start1="362" end1="363" start2="352" end2="354" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="378" end1="380" start2="369" end2="370" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="382" end1="384" start2="372" end2="374" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="385" end1="386" start2="375" end2="376" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="388" end1="390" start2="378" end2="380" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="391" end1="393" start2="381" end2="386" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="394" end1="399" start2="387" end2="393" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="401" end1="405" start2="395" end2="399" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="407" end1="441" start2="401" end2="401" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="454" end1="456" start2="414" end2="415" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="457" end1="458" start2="416" end2="417" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="460" end1="461" start2="419" end2="420" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
-        <range start1="476" end1="476" start2="435" end2="504" changelist="7441d84a-adda-4ab7-b4a7-49091f1d2baa" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -147,7 +109,7 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.finalImage">
+  <component name="RunManager" selected="JUnit.All in ISE5783_5796_8560">
     <configuration name="finalImage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="finalImage.finalImage" />
       <module name="ISE5783_5796_8560" />
@@ -176,17 +138,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PictureTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in ISE5783_5796_8560" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="improvementTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="improvementTest" />
-      <option name="MAIN_CLASS_NAME" value="improvementTests.PictureTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -224,17 +179,17 @@
     <list>
       <item itemvalue="Application.finalImage" />
       <item itemvalue="JUnit.AccelerationTests" />
-      <item itemvalue="JUnit.PictureTests" />
+      <item itemvalue="JUnit.All in ISE5783_5796_8560" />
       <item itemvalue="JUnit.RenderTests" />
       <item itemvalue="JUnit.TeapotTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ISE5783_5796_8560" />
         <item itemvalue="Application.finalImage" />
         <item itemvalue="JUnit.TeapotTest" />
         <item itemvalue="JUnit.RenderTests" />
         <item itemvalue="JUnit.AccelerationTests" />
-        <item itemvalue="JUnit.PictureTests" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +238,8 @@
       <workItem from="1687657579483" duration="123000" />
       <workItem from="1687686410817" duration="41602000" />
       <workItem from="1687738480792" duration="55000" />
-      <workItem from="1687766871596" duration="61189000" />
+      <workItem from="1687766871596" duration="61896000" />
+      <workItem from="1687877805560" duration="732000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -572,7 +528,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1687738526620</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL‎-00042" summary="finished the mini project">
+      <created>1687868796555</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL‎-00042" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1687868796556</updated>
+    </task>
+    <task id="LOCAL‎-00043" summary="Changes by Avishai">
+      <created>1687868811176</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL‎-00043" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1687868811176</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -603,7 +573,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="draft 2" />
     <MESSAGE value="draft 3" />
     <MESSAGE value="complete first step" />
     <MESSAGE value="added tests for point and vector" />
@@ -626,9 +595,10 @@
     <MESSAGE value="finished minip 1" />
     <MESSAGE value="finished MT implementation" />
     <MESSAGE value="almost finished implementing ASS" />
-    <MESSAGE value="Changes by Avishai" />
     <MESSAGE value="almost finished implementing XML and final image" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost finished implementing XML and final image" />
+    <MESSAGE value="finished the mini project" />
+    <MESSAGE value="Changes by Avishai" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by Avishai" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
