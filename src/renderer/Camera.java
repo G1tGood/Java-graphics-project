@@ -1,14 +1,9 @@
 package renderer;
 
-import primitives.Color;
-import primitives.Point;
-import primitives.Ray;
-import primitives.Vector;
+import primitives.*;
 
 import java.util.LinkedList;
 import java.util.MissingResourceException;
-import java.util.Optional;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 import static java.lang.Math.min;
@@ -18,12 +13,6 @@ import static primitives.Util.*;
  * @author Yoav Babayof and Avishai Shachor
  */
 public class Camera {
-    /** interface for four-variables lambda function */
-    @FunctionalInterface
-    interface FourConsumer<A,B,C,D> {
-        void accept(A a, B b, C c, D d);
-    }
-
     // ------[PUBLIC FIELDS]------- //
     /** View Plane height */
     double vpHeight;
@@ -360,7 +349,8 @@ public class Camera {
      * @return average color of grid with ASS
      */
     private Color adaptiveCalcHelp(Point point, Blackboard bb, Function<Ray,Color> calcRay, boolean reverse) {
-        return adaptiveCalc(point,0,0,bb.getN()-1,bb.getN()-1,bb, new Color[bb.getN()][bb.getN()],calcRay,reverse);
+        int n = bb.getN();
+        return adaptiveCalc(point,0,0,n-1,n-1,bb, new Color[n][n],calcRay,reverse);
     }
 
     /** recursive function for ASS
@@ -376,67 +366,36 @@ public class Camera {
      * @return average color of sub-grid with ASS
      */
     private Color adaptiveCalc(Point point, int minX, int minY, int maxX, int maxY, Blackboard bb, Color[][] colors, Function<Ray, Color> function, boolean reverse){
-        /*
-        if (colors[minX][minY] == null) {
+        if (colors[minY][minX] == null) {
             adaptiveAddColor(point,minX,minY,bb,colors,function,reverse);
         }
-        if (colors[minX][maxY] == null)  {
-            adaptiveAddColor(point,minX,maxY,bb,colors,function,reverse);
-        }
-        if(colors[maxX][maxY] == null){
-            adaptiveAddColor(point,maxX,maxY,bb,colors,function,reverse);
-        }
-        if(colors[maxX][minY] == null){
+        if (colors[minY][maxX] == null)  {
             adaptiveAddColor(point,maxX,minY,bb,colors,function,reverse);
         }
-        if (colors[minX][minY].equals(colors[minX][maxY]) && colors[minX][minY].equals(colors[maxX][maxY]) && colors[minX][minY].equals(colors[maxX][minY])){
-            return colors[minX][minY];
+        if (colors[maxY][maxX] == null){
+            adaptiveAddColor(point,maxX,maxY,bb,colors,function,reverse);
         }
-        else if (minX == maxX - 1) {
-            return colors[minX][minY]
-                    .add(colors[minX][maxY])
-                    .add(colors[maxX][minY])
-                    .add(colors[maxX][maxY]).reduce(4);
+        if (colors[maxY][minX] == null){
+            adaptiveAddColor(point,minX,maxY,bb,colors,function,reverse);
         }
-        else{
-            return (adaptiveCalc(point,(minX+maxX)/2, (minY+maxY)/2,maxX,maxY, bb, colors, function,reverse) // top right
-                    .add(adaptiveCalc(point,minX, (minY+maxY)/2,(minX+maxX)/2,maxY, bb, colors, function,reverse)) // top left
-                    .add(adaptiveCalc(point,minX, minY,(minX+maxX)/2,(minY+maxY)/2, bb, colors, function,reverse)) // bottom left
-                    .add(adaptiveCalc(point,(minX+maxX)/2,minY,maxX,(minY+maxY)/2,bb,colors, function,reverse))) // bottom right
+        if (colors[minY][minX].equals(colors[minY][maxX]) &&
+                colors[minY][minX].equals(colors[maxY][maxX]) &&
+                colors[minY][minX].equals(colors[maxY][minX]))
+        {
+            return colors[minY][minX];
+        }
+        if (minX == maxX - 1) {
+            return colors[minY][minX]
+                    .add(colors[minY][maxX])
+                    .add(colors[maxY][minX])
+                    .add(colors[maxY][maxX])
                     .reduce(4);
         }
-        */
-        if (colors[minX][minY] == null) {
-            adaptiveAddColor(point,minX,minY,bb,colors,function,reverse);
-        }
-        if (colors[minX][maxY] == null)  {
-            adaptiveAddColor(point,minX,maxY,bb,colors,function,reverse);
-        }
-        if(colors[maxX][maxY] == null){
-            adaptiveAddColor(point,maxX,maxY,bb,colors,function,reverse);
-        }
-        if(colors[maxX][minY] == null){
-            adaptiveAddColor(point,maxX,minY,bb,colors,function,reverse);
-        }
-        if (colors[(minX+maxX)/2][(minY+maxY)/2] == null){
-            adaptiveAddColor(point,(minX+maxX)/2,(minY+maxY)/2,bb,colors,function,reverse);
-        }
-        if (colors[minX][minY].equals(colors[minX][maxY]) && colors[minX][minY].equals(colors[maxX][maxY]) && colors[minX][minY].equals(colors[maxX][minY])){
-            return colors[minX][minY];
-        }
-        else if (minX == maxX - 2) {
-            return colors[minX][minY]
-                    .add(colors[minX][maxY])
-                    .add(colors[maxX][minY])
-                    .add(colors[maxX][maxY])
-                    .add(colors[(minX+maxX)/2][(minY+maxY)/2])
-                    .reduce(5);
-        }
         else{
-            return (adaptiveCalc(point,(minX+maxX)/2, (minY+maxY)/2,maxX,maxY, bb, colors, function,reverse) // top right
-                    .add(adaptiveCalc(point,minX, (minY+maxY)/2,(minX+maxX)/2,maxY, bb, colors, function,reverse)) // top left
-                    .add(adaptiveCalc(point,minX, minY,(minX+maxX)/2,(minY+maxY)/2, bb, colors, function,reverse)) // bottom left
-                    .add(adaptiveCalc(point,(minX+maxX)/2,minY,maxX,(minY+maxY)/2,bb,colors, function,reverse))) // bottom right
+            return (adaptiveCalc(point,(minX+maxX)/2, (minY+maxY)/2, maxX, maxY, bb, colors, function,reverse) // bottom right
+                    .add(adaptiveCalc(point,minX, (minY+maxY)/2,(minX+maxX)/2,maxY, bb, colors, function,reverse)) // bottom left
+                    .add(adaptiveCalc(point,minX, minY,(minX+maxX)/2,(minY+maxY)/2, bb, colors, function,reverse)) // top left
+                    .add(adaptiveCalc(point,(minX+maxX)/2,minY,maxX,(minY+maxY)/2,bb,colors, function,reverse))) // top right
                     .reduce(4);
         }
     }
@@ -452,13 +411,12 @@ public class Camera {
      * @param reverse weather the rays are cast from point to target area (reverse = false) or the other way around
      */
     private void adaptiveAddColor(Point point, int j, int i, Blackboard bb, Color[][] colors, Function<Ray, Color> function, boolean reverse) {
-        int halfN = (bb.getN()-1)/2;
-        Point p = bb.generatePoint(j-halfN, i-halfN);
+        Point p = bb.generatePoint(j, i);
         if (!reverse) {
-            colors[j][i] = function.apply(new Ray(point, p.subtract(point)));
+            colors[i][j] = function.apply(new Ray(point, p.subtract(point)));
         }
         else {
-            colors[j][i] = function.apply(new Ray(p, point.subtract(p)));
+            colors[i][j] = function.apply(new Ray(p, point.subtract(p)));
         }
     }
 

@@ -62,6 +62,8 @@ public class Scene {
         return this;
     }
 
+
+
     /** setter for lights in scene
      * @param lights lights in scene
      * @return scene

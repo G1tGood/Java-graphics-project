@@ -17,7 +17,7 @@ public class Color {
    public static final Color BLACK = new Color();
 
    /** max difference between two colors to be considered equal */
-   private static final float ACCURACY = 0.5F;
+   private static final float ACCURACY = 2F;
 
    /** Default constructor - to generate Black Color (privately) */
    private Color() { rgb = Double3.ZERO; }

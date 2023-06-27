@@ -31,10 +31,15 @@ public class Triangle extends Polygon {
         Vector v1 = p0.subtract(p).normalize();
         Vector v2 = p1.subtract(p).normalize();
         Vector v3 = p2.subtract(p).normalize();
-        if (v1.equals(v2) || v1.equals(v2.scale(-1)) || v1.equals(v3) || v1.equals(v3.scale(-1)) || v2.equals(v3) || v2.equals(v3.scale(-1))) return null;
-        Vector n1 = v1.crossProduct(v2);
-        Vector n2 = v2.crossProduct(v3);
-        Vector n3 = v3.crossProduct(v1);
+        Vector n1, n2, n3;
+        try {
+            n1 = v1.crossProduct(v2);
+            n2 = v2.crossProduct(v3);
+            n3 = v3.crossProduct(v1);
+        }
+        catch (Exception ignored){
+            return null;
+        }
         Vector rayDir = ray.getDir();
         double vn1 = alignZero(rayDir.dotProduct(n1)), vn2 = alignZero(rayDir.dotProduct(n2)), vn3 = alignZero(rayDir.dotProduct(n3));
         if (isZero(vn1) || isZero(vn2) || isZero(vn3)) return null;

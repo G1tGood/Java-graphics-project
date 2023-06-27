@@ -56,4 +56,20 @@ public class Geometries extends Intersectable {
         }
         return points;
     }
+
+    /** getter for geometries
+     * @return geometries
+     */
+    public List<Intersectable> getGeometries() {
+        return geometries;
+    }
+
+    /** setter for geometries
+     * @param geometries given geometries
+     * @return Geometries object
+     */
+    public Geometries setGeometries(List<Intersectable> geometries) {
+        this.geometries = geometries;
+        return this;
+    }
 }

@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="almost finished implementing ASS">
-      <change afterPath="$PROJECT_DIR$/src/finalImage/finalImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/xml/XMLParser.java" afterDir="false" />
+    <list default="true" id="da73ee98-a0a1-4c10-afb9-791ee45e09df" name="Changes" comment="almost finished implementing XML and final image">
+      <change afterPath="$PROJECT_DIR$/src/primitives/FourConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/xml/finalimage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/improvementTests/AccelerationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/unittests/improvementTests/PictureTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ISE5783_5796_8560.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ISE5783_5796_8560.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometries/Geometry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/finalImage/finalImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/finalImage/finalImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Geometries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Geometries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometries/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometries/Triangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/Blackboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Blackboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderer/PixelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/PixelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scene/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/Scene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/xml/XMLParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/xml/XMLParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unittests/rendererTest/ImprovementsTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/unittests/rendererTest/RenderTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/unittests/rendererTest/RenderTests.java" afterDir="false" />
+    </list>
+    <list id="7441d84a-adda-4ab7-b4a7-49091f1d2baa" name="Changes by Avishai" comment="">
+      <change beforePath="$PROJECT_DIR$/src/renderer/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderer/Camera.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -51,6 +61,29 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/renderer/Camera.java">
+      <ranges>
+        <range start1="2" end1="6" start2="2" end2="3" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="9" end1="11" start2="6" end2="6" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="20" end1="26" start2="15" end2="15" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="74" end1="74" start2="63" end2="64" changelist="7441d84a-adda-4ab7-b4a7-49091f1d2baa" />
+        <range start1="362" end1="363" start2="352" end2="354" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="378" end1="380" start2="369" end2="370" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="382" end1="384" start2="372" end2="374" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="385" end1="386" start2="375" end2="376" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="388" end1="390" start2="378" end2="380" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="391" end1="393" start2="381" end2="386" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="394" end1="399" start2="387" end2="393" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="401" end1="405" start2="395" end2="399" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="407" end1="441" start2="401" end2="401" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="454" end1="456" start2="414" end2="415" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="457" end1="458" start2="416" end2="417" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="460" end1="461" start2="419" end2="420" changelist="da73ee98-a0a1-4c10-afb9-791ee45e09df" />
+        <range start1="476" end1="476" start2="435" end2="504" changelist="7441d84a-adda-4ab7-b4a7-49091f1d2baa" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -65,38 +98,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "extract.method.default.visibility": "private",
-    "introduce.parameter.lambda": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-19",
-    "last_directory_selection": "C:/Users/yoavb/IdeaProjects/ISE5783_5796_8560/unittests",
-    "last_opened_file_path": "D:/Downloads/Polygon.java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;introduce.parameter.lambda&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/yoavb/IdeaProjects/ISE5783_5796_8560/unittests&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Downloads/Polygon.java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -114,7 +147,7 @@
       <recent name="unittests.primitivesTests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RenderTests">
+  <component name="RunManager" selected="Application.finalImage">
     <configuration name="finalImage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="finalImage.finalImage" />
       <module name="ISE5783_5796_8560" />
@@ -128,17 +161,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImprovementsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccelerationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ISE5783_5796_8560" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="rendererTest.*" />
+          <option name="PATTERN" value="improvementTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="rendererTest" />
-      <option name="MAIN_CLASS_NAME" value="rendererTest.ImprovementsTests" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="improvementTests" />
+      <option name="MAIN_CLASS_NAME" value="improvementTests.AccelerationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PictureTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ISE5783_5796_8560" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="improvementTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="improvementTest" />
+      <option name="MAIN_CLASS_NAME" value="improvementTests.PictureTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -174,35 +221,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="planeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ISE5783_5796_8560" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="special.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="special" />
-      <option name="MAIN_CLASS_NAME" value="special.planeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.finalImage" />
+      <item itemvalue="JUnit.AccelerationTests" />
+      <item itemvalue="JUnit.PictureTests" />
       <item itemvalue="JUnit.RenderTests" />
-      <item itemvalue="JUnit.planeTest" />
       <item itemvalue="JUnit.TeapotTest" />
-      <item itemvalue="JUnit.ImprovementsTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RenderTests" />
         <item itemvalue="Application.finalImage" />
-        <item itemvalue="JUnit.ImprovementsTests" />
-        <item itemvalue="JUnit.planeTest" />
         <item itemvalue="JUnit.TeapotTest" />
+        <item itemvalue="JUnit.RenderTests" />
+        <item itemvalue="JUnit.AccelerationTests" />
+        <item itemvalue="JUnit.PictureTests" />
       </list>
     </recent_temporary>
   </component>
@@ -250,6 +282,8 @@
       <workItem from="1687635986868" duration="19016000" />
       <workItem from="1687657579483" duration="123000" />
       <workItem from="1687686410817" duration="41602000" />
+      <workItem from="1687738480792" duration="55000" />
+      <workItem from="1687766871596" duration="61189000" />
     </task>
     <task id="LOCAL‎-00001" summary="draft 1">
       <created>1679175232887</created>
@@ -531,7 +565,14 @@
       <option name="project" value="LOCAL‎" />
       <updated>1687653688486</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL‎-00041" summary="almost finished implementing XML and final image">
+      <created>1687738526620</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL‎-00041" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1687738526620</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +603,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="draft 1" />
     <MESSAGE value="draft 2" />
     <MESSAGE value="draft 3" />
     <MESSAGE value="complete first step" />
@@ -587,7 +627,8 @@
     <MESSAGE value="finished MT implementation" />
     <MESSAGE value="almost finished implementing ASS" />
     <MESSAGE value="Changes by Avishai" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by Avishai" />
+    <MESSAGE value="almost finished implementing XML and final image" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost finished implementing XML and final image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -599,7 +640,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/renderer/Camera.java</url>
-          <line>362</line>
+          <line>353</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

@@ -89,7 +89,6 @@ public class RenderTests {
       camera.writeToImage();
    }
 
-   // TODO: implement XML test (bonus)
    /**Test for XML based scene - for bonus */
    @Test
    public void basicRenderXml() {
@@ -103,9 +102,13 @@ public class RenderTests {
       } catch (SAXException e) {
          throw new RuntimeException(e);
       }
+      //<triangle p0="-100 0 -100" p1="0 100 -100" p2="-100 100 -100" emission-light="250 0 0"/>
+      //scene.setAmbientLight(new AmbientLight(new Color(255,0,255),1));
+      //scene.geometries.add(new Triangle(new Point(-100,0,-100),new Point(0,100,-100),new Point(-100,100,-100)).setEmission(new Color(255,0,0)));
       Camera camera = new Camera(new Point(0,0,0), new Vector(0, 0, -1), new Vector(0, 1, 0))     //
          .setVPDistance(100)                                                                //
-         .setVPSize(500, 500).setImageWriter(new ImageWriter("xml render test", 1000, 1000))
+         .setVPSize(500, 500)
+              .setImageWriter(new ImageWriter("xml render test", 1000, 1000))
          .setRayTracer(new RayTracerBasic(scene));
       camera.renderImage();
       camera.printGrid(100, new Color(YELLOW));

@@ -87,6 +87,7 @@ public class Blackboard {
                 points.add(randomMovePoint(this.generatePoint(j, i)));
             }
         }
+        if (n%2 == 0) points.add(location);
         return points;
     }
 
